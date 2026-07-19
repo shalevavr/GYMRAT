@@ -1,0 +1,405 @@
+AI HANDOFF INSTRUCTIONS FOR GYMRAT WEBSITE WORK
+
+Project path:
+G:\Shalev\Sport website
+
+This is the GYMRAT static website/PWA. It includes training guide pages, weight tracking pages, weekly workout planner, Planner Builder, My Plans, anatomy guide pages, account login/register, MongoDB-backed cloud sync, and offline/PWA support.
+
+CURRENT GLOBAL RULES
+
+- Every AI/developer that changes this project must update this file before finishing.
+- Keep existing user changes. Never revert unrelated work unless the user explicitly asks.
+- When changing cached HTML/CSS/JS/assets, update service-worker.js CACHE_NAME.
+- Current active service worker cache:
+  gymrat-offline-v20260505-readonly-note-until-edit-v92
+- Final website image assets should be WebP where possible.
+- Website code must reference project-relative paths, not Codex temp/archive paths.
+- Website path references should use:
+  G:\Shalev\Sport website
+
+
+ANATOMY IS OFF-LIMITS
+
+No matter the circumstances, do not change any Anatomy page, Anatomy muscle page, Anatomy detail page, Anatomy JavaScript, or Anatomy-related CSS/behavior unless the user explicitly says to edit Anatomy.
+
+Off-limits files:
+- Anatomy.html
+- AnatomyAbs.html
+- AnatomyBack.html
+- AnatomyBiceps.html
+- AnatomyCalves.html
+- AnatomyChest.html
+- AnatomyForearms.html
+- AnatomyGlutes.html
+- AnatomyHamstrings.html
+- AnatomyQuadriceps.html
+- AnatomyShoulders.html
+- AnatomyTriceps.html
+- anatomy-detail.js
+
+Off-limits CSS/behavior areas:
+- page-anatomy
+- page-anatomy-detail
+- anatomy-*
+- AnatomyLink
+- Anatomy muscle pages, cards, panels, images, text, colors, backgrounds, and behavior
+
+PWA / OFFLINE
+
+- The APK download flow was removed. Android/iPhone should use PWA install.
+- apple-touch-icon.png lives in Pictures/Logos/apple-touch-icon.png; HTML should reference that project-relative path.
+- Logo cleanup removed unused App_logo.png, App_logo_icon.png, and duplicate Img.webp. Keep Icon.webp, Bookmark.webp, Img_no_star.webp, and the PWA icon/launch size files unless references are updated.
+- Android installs from browser/PWA prompt or browser menu.
+- iPhone installs from Safari/Chrome through Share > Add to Home Screen; it may be under More.
+- service-worker.js uses tolerant caching so one missing asset does not break install.
+- Offline behavior depends on the app being opened online first so assets are cached.
+- Bump CACHE_NAME whenever cached HTML/CSS/JS/assets change.
+- Android PWA launch/loading logo now uses new manifest icon paths Pictures\Logos\pwa-launch-192.png, Pictures\Logos\pwa-launch-512.png, Pictures\Logos\pwa-launch-maskable-512.png, and Pictures\Logos\pwa-launch-1024.png so Chrome does not keep reusing the older splash logo asset.
+
+AUTH / ACCOUNT SYSTEM
+
+Main files:
+- index.html
+- MainPage.html
+- auth.js
+- api/users-register.js
+- api/users-login.js
+- api/users-fetch.js
+- api/users-save.js
+- api/users-delete.js
+- api/users-change-password.js
+- api/_lib/security.js
+- api/_lib/mongodb.js
+
+Current behavior:
+- Login is the default auth view.
+- Register opens from "Don't have an account? Register".
+- Register asks for Email or Username, Password, and Terms of Use acceptance.
+- Passwords have no minimum character/number restriction beyond being non-empty and at most 128 characters.
+- Login/register password fields use normal website-style SVG eye icons inside the password input on the right side.
+- After successful register, the app tries to log the user in automatically and opens MainPage.html.
+- Same-device login info is remembered after login/register/offline login and prefilled next time.
+- Offline login is available on the same device after prior online login/register.
+- New registrations store passwordHash, not plaintext passwords.
+- Existing plaintext MongoDB password users migrate automatically on next successful online login.
+- Server sessions are stored as hashed session tokens with expiry.
+- Basic login rate limiting exists in api/_lib/security.js.
+- TermsOfUse.html contains only the original security note:
+  - GYMRAT uses account protection, but please do not enter important private information here.
+  - Use a unique password that you do not use for your email, bank account, or any other important service.
+  - We do not take responsibility for data that is stolen, lost, or accessed by someone else.
+
+MAIN PAGE SETTINGS
+
+MainPage.html has a fixed top-left settings gear.
+An account-menu-spacer sits before the header so the settings gear does not hide navigation/content.
+The settings dialog is vertically scrollable so all options remain reachable on small screens.
+
+Settings modal layout:
+- Settings
+- User: current username
+- Choose what you want to do on this device.
+- Change password section:
+  - Original password
+  - New password
+  - Change password
+- Account options:
+  - Log out
+  - Forget this device
+  - Delete account
+  - Terms of Use
+  - Close
+
+Settings behavior:
+- Log out confirms and clears only active session.
+- Forget this device confirms and clears active session plus remembered login/offline login/local account cache on this device.
+- Delete account confirms twice, requires online access, calls /api/users-delete, deletes the MongoDB account document, and clears local login data.
+- Change password requires online access, active session, original password, and new password. It calls /api/users-change-password.
+- After password change, remembered same-device login and offline login are updated to the new password.
+
+Settings button colors:
+- Log out: #dc2626
+- Forget this device: #991b1b
+- Delete account: #450a0a
+- Terms of Use: #2563eb
+- Close: #16a34a
+
+BACK TO MAIN PAGE BUTTON
+
+Every HTML file except index.html and MainPage.html should have a top-left Back to Main Page button that stays in its original document position and scrolls away with the page.
+
+Current rule:
+- Keep the button at the same top-left starting position, but use position:absolute, not position:fixed, so it does not follow vertical or horizontal scrolling.
+- Move page content down enough so the button does not hide content.
+- Do not move/resize the button just because it overlaps.
+- Use this spacer after the button:
+  <div class="back-main-page-spacer" aria-hidden="true" style="height:clamp(64px,8vh,92px);flex:0 0 auto;"></div>
+- Do not add stray PowerShell backtick characters around this button.
+
+BODY BACKGROUND
+
+- Regular pages should use the shared dark blue patterned body background.
+- Weight tracking pages and training guide exercise pages should not use a plain/incorrect body background.
+
+WEIGHT TRACKING
+
+- Weight tracking muscle pages no longer show "User: username".
+- Js.js tracking status banner inserts at wrapper/top area and no longer depends on userDisplay.
+- Weight tracking update banners should sit below the Back to Main Page spacer and not be hidden by the fixed button.
+- Weight tracking muscle pages set .wrapper margin-top: clamp(90px, 12vh, 140px) so exercise content stays below the fixed Back to Main Page button on small screens. Previous <br> tags alone did not work because the page body uses flex layout.
+
+PLANNER / MY PLANS
+
+Weekly Workout Planner:
+- Remains a weekly table planner.
+- Notebook button was removed from weekly table.
+- Weekly planner cells can smart-link to saved plan/note names from My Plans.
+
+Planner Builder:
+- Old visible name "Gym Workout Planner" changed to "Planner Builder".
+- It is not necessarily only for gym workouts.
+- Default rows:
+  - Back
+  - Biceps
+  - Abs
+- Default title cell says:
+  Enter workout name here
+- Title cell must NOT be directly editable before pressing Edit.
+- Saving with default name "Enter workout name here" is not allowed.
+- My Plans folder icon/link in GymWorkoutPlanner.html should stay at the top-right with top: 1% and right: 1%, separate from the Back to Main Page button on the top-left.
+
+My Plans:
+- Shows saved planner tables and saved note planners.
+- Edit mode has notebook icon after clicking Edit.
+- Notebook icon is hidden until edit mode in My Plans. Planner Builder is different: its notebook/table toggle is always visible.
+
+Notebook note mode:
+- Notebook icon converts between table planner and note planner mode in Planner Builder and My Plans.
+- In Planner Builder, the notebook/table toggle button is always visible without clicking Edit first.
+- In Planner Builder, converting a table to a note is temporary until Save; it clears table edit mode and row/column controls, does not auto-focus the note, and refresh/navigation returns to the default table if the note was not saved.
+- In Planner Builder, opening note mode from the notebook button shows the notebook as read-only until the user explicitly clicks Edit.
+- Saving a Planner Builder note saves it into My Plans, clears the builder draft, and returns Planner Builder to the default table.
+- After a Planner Builder table or note is saved, first exit edit mode/reset Builder to the default table, then show a GYMRAT alert with only an OK button and no Cancel button.
+- In Planner Builder and My Plans edit mode, the toggle shows a notebook icon when the current action converts a table to a note, and a table icon when the current action converts a note back to a table.
+- Converting table to note shows custom OK/Cancel confirm:
+  Are you sure you want to make this table a note? Data that was written in here before will not be saved.
+- Converting note to planner shows custom OK/Cancel confirm:
+  Are you sure you want to bring this note back to a table? Data that was written in here before will not be saved.
+- OK deletes old-mode data and switches mode.
+- Cancel does nothing.
+- Old mode data is not preserved during conversion.
+- Row/column add/delete controls must be hidden while in notebook note mode.
+- When switching back to planner/table mode, row/column controls come back.
+- Note body uses lined notebook styling with text aligned on the lines.
+
+CUSTOM ALERT / CONFIRM
+
+- Native alert/confirm style should be replaced by GYMRAT custom dialog design.
+- auth.js defines showGymratDialog, gymratAlert, and gymratConfirm.
+- window.alert uses GYMRAT custom dialog.
+- Js.js and Table.js async confirms use window.gymratConfirm.
+- Dialogs include OK and Cancel where needed.
+- GYMRAT alerts show only OK; confirms show OK and Cancel.
+- Punctuation direction bug was fixed with ltr/plaintext behavior.
+
+ANATOMY SYSTEM
+
+Main files:
+- Anatomy.html
+- AnatomyBiceps.html
+- AnatomyTriceps.html
+- AnatomyBack.html
+- AnatomyChest.html
+- AnatomyAbs.html
+- AnatomyQuadriceps.html
+- AnatomyHamstrings.html
+- AnatomyGlutes.html
+- AnatomyShoulders.html
+- AnatomyForearms.html
+- AnatomyCalves.html
+- anatomy-detail.js
+- Css.css
+- Pictures folder
+
+Current Anatomy landing page:
+- Hero subtitle says:
+  Explore the muscles behind each movement.
+- Research card/link was removed.
+- Research.html was deleted for now.
+
+Anatomy image goals:
+- Custom anatomy images for each muscle group.
+- Use approved custom style:
+  - Realistic 3D medical anatomy render.
+  - Dark background.
+  - Detailed muscle fibers.
+  - Same general model/framing as approved biceps/triceps/back/chest assets.
+  - Clear colored muscles.
+  - No random anatomy images.
+  - No labels, arrows, watermark, or text inside image.
+- User cares about anatomy accuracy. If wrong, fix image and update code to corrected file.
+
+Image file rules:
+- Final website images must be WebP only.
+- Temporary PNGs from generation must be converted to WebP and removed.
+- Final website image assets go in:
+  G:\Shalev\Sport website\Pictures
+- Archive copies can be kept in:
+  C:\Users\shale\.codex\generated_images\Codex pictures
+- Website code must never reference C:\Users\shale\.codex\generated_images.
+- Corrected images should usually use a new filename to avoid browser/service-worker cache issues.
+
+Muscle color rules:
+- Red: #ef4444
+- Green: #22c55e
+- Blue: #3b82f6
+- Yellow: #facc15
+- Purple: #a855f7
+- Cyan: #06b6d4
+- Orange: #f97316
+- Gray: #9ca3af
+- UI color dot must match muscle color in the image.
+
+Structured anatomy rule:
+- Do not use isolated one-muscle-only images for local compartments.
+- Show full local structure and color each relevant muscle differently.
+- If too complex, split into logical subgroup images.
+- Back is split into:
+  - Superficial Back
+  - Posterior Shoulder And Rotator Cuff
+  - Spinal Erectors And Deep Stabilizers
+
+Anatomy click behavior:
+- Shared renderer:
+  G:\Shalev\Sport website\anatomy-detail.js
+- Clicking muscle image opens fullscreen viewer.
+- Clicking muscle name opens fullscreen viewer.
+- Read more is the only way to open the muscle function/details container.
+- Fullscreen viewer has Back button.
+- Escape closes fullscreen viewer.
+
+Anatomy data pattern:
+window.GYMRAT_ANATOMY_DETAIL = {
+  image: "Pictures/Group_Structure_anatomy.webp",
+  groups: [
+    {
+      name: "Group Name",
+      muscles: [
+        {
+          name: "Muscle 1",
+          image: "Pictures/Group_Structure_anatomy.webp",
+          color: "#ef4444"
+        }
+      ]
+    }
+  ]
+};
+
+Research rule before creating anatomy images:
+- Research muscle placement from reliable anatomy sources before generating images.
+- Prefer:
+  - Kenhub
+  - Bodyworks Prime
+- Also use at least one backup source when possible:
+  - TeachMeAnatomy
+  - Complete Anatomy / Elsevier
+  - Another reliable anatomy source
+- Do not generate anatomy images from memory alone.
+- Check origin, insertion, superficial/deep relationship, medial/lateral position, and view visibility.
+- Include sources used in final summary for anatomy work.
+
+Important current anatomy corrections:
+- Abs:
+  - Do not add Pyramidalis back.
+  - Current categories: Front Core And Deep Abs, Side Core.
+  - Rectus Abdominis = blue #3b82f6.
+  - Transversus Abdominis = green #22c55e.
+  - Front abs image should not read as 4-pack.
+  - Do not change Side Core unless user specifically asks.
+- Quadriceps:
+  - Do not use Iliopsoas as one target entry.
+  - Keep Psoas Major and Psoas Minor separate.
+  - Sartorius must stay on same leg and not cross to opposite leg.
+  - Tensor Fasciae Latae should show proximal anterolateral muscle and IT tract toward lateral knee.
+- Glutes:
+  - Tensor Fasciae Latae removed because it is handled in Quadriceps / Anterior Hip Region.
+  - First category name is Glutes.
+  - Deep Hip Rotators order: Piriformis, Superior Gemellus, Obturator Internus, Inferior Gemellus, Obturator Externus, Quadratus Femoris.
+- Hamstrings:
+  - Current categories: Hamstrings, Adductors.
+  - AnatomyHamstrings.html hero and side preview use Pictures/Animations/Animation_hamstrings.webp; muscle detail images stay on Pictures/Muscles/Hamstrings*.webp.
+  - Posterior view of RIGHT thigh.
+  - For right leg posterior view, lateral side is viewer's right and medial side is viewer's left.
+  - From lateral to medial: Biceps femoris, Semitendinosus, Semimembranosus.
+- Calves:
+  - AnatomyCalves.html hero and side preview use Pictures/Animations/Animation_calves.webp; muscle detail images stay on Pictures/Muscles/Calves*.webp.
+
+VERIFICATION EXPECTATIONS
+
+After JS/service-worker/API changes, run relevant syntax checks:
+- node --check auth.js
+- node --check Table.js
+- node --check Js.js
+- node --check anatomy-detail.js
+- node --check service-worker.js
+- node --check api/users-register.js
+- node --check api/users-login.js
+- node --check api/users-fetch.js
+- node --check api/users-save.js
+- node --check api/users-delete.js
+- node --check api/users-change-password.js
+- node --check api/_lib/security.js
+- node --check api/_lib/mongodb.js
+
+Search for leftovers when relevant:
+- Native confirm calls.
+- Old page title/text like "Gym Workout Planner".
+- contenteditable on Planner Builder title cells.
+- Old notebook focus onclick handlers.
+- Stray visible backticks in HTML.
+- Missing cached assets in service-worker.js.
+- Deleted pages still referenced in APP_SHELL.
+- Old password restrictions like maxlength="4", [0-9]{4}, inputmode="numeric", or "exactly 4".
+
+CURRENT IMPORTANT FILE GROUPS
+
+Shared:
+- Css.css
+- Js.js
+- auth.js
+- Table.js
+- anatomy-detail.js
+- service-worker.js
+- manifest.json
+
+Auth/API:
+- index.html
+- MainPage.html
+- TermsOfUse.html
+- api/_lib/mongodb.js
+- api/_lib/security.js
+- api/users-register.js
+- api/users-login.js
+- api/users-fetch.js
+- api/users-save.js
+- api/users-delete.js
+- api/users-change-password.js
+
+Planner:
+- WorkoutPlanMainPage.html
+- GymWorkoutPlanner.html
+- MyPlans.html
+- Table.js
+- Css.css
+
+PWA:
+- manifest.json
+- service-worker.js
+- apple-touch-icon.png
+- Pictures/Logos and icon assets
+
+Anatomy:
+- Anatomy*.html
+- anatomy-detail.js
+- Css.css
+- Pictures folder

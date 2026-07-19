@@ -1,0 +1,38 @@
+{
+    "name": "GYMRAT",
+    "short_name": "GYMRAT",
+    "description": "Workout planning, exercise guidance, anatomy, favorites, and weight tracking.",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#0f172a",
+    "theme_color": "#0f172a",
+    "categories": ["health", "fitness", "productivity"],
+    "icons": [
+        {
+            "src": "Pictures/Logos/pwa-launch-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "Pictures/Logos/pwa-launch-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "Pictures/Logos/pwa-launch-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "Pictures/Logos/pwa-launch-1024.png",
+            "sizes": "1024x1024",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}

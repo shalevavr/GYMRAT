@@ -1,0 +1,686 @@
+{
+  "method": "Grouped by leading food name before first comma, clustered by macro similarity, kept one representative per similar cluster. This keeps more than 5 records only when macro clusters are genuinely outside the similarity thresholds.",
+  "thresholdsPer100g": {
+    "calories": 50,
+    "protein": 1,
+    "carbs": 1,
+    "fat": 1
+  },
+  "before": 13268,
+  "after": 7500,
+  "removed": 5768,
+  "groupsWithRemovals": 557,
+  "largestRemovedGroups": [
+    {
+      "root": "beef",
+      "before": 1047,
+      "after": 150,
+      "removed": 897,
+      "clusterCount": 150,
+      "examplesKept": [
+        "Beef, Australian, imported, grass-fed,  external fat, raw",
+        "Beef, Australian, imported, grass-fed, ground, 85% lean / 15% fat, raw",
+        "Beef, short loin, porterhouse steak, separable lean only, trimmed to 1/8\" fat, select, raw",
+        "Beef, chuck for stew, separable lean and fat, all grades, raw",
+        "Beef, chuck eye steak, boneless, separable lean and fat, trimmed to 0\" fat, select, raw",
+        "Beef, bottom sirloin, tri-tip roast, separable lean only, trimmed to 0\" fat, select, raw",
+        "Beef, Australian, imported, grass-fed, rib, ribeye steak/roast lip-on, boneless, separable lean and fat, raw",
+        "Beef, Australian, imported, grass-fed, seam fat, raw"
+      ],
+      "examplesRemoved": [
+        "Beef, Australian, imported, Wagyu, loin, tenderloin steak/roast, boneless, separable lean and fat, Aust. marble score 9, raw",
+        "Beef, brisket, whole, separable lean and fat, trimmed to 1/8\" fat, all grades, raw",
+        "Beef, chuck, arm pot roast, separable lean and fat, trimmed to 1/8\" fat, choice, raw",
+        "Beef, chuck, blade roast, separable lean and fat, trimmed to 1/8\" fat, select, raw",
+        "Beef, chuck, short ribs, boneless, separable lean and fat, trimmed to 0\" fat, all grades, raw",
+        "Beef, chuck, short ribs, boneless, separable lean and fat, trimmed to 0\" fat, choice, raw",
+        "Beef, chuck, short ribs, boneless, separable lean and fat, trimmed to 0\" fat, select, raw",
+        "Beef, corned"
+      ]
+    },
+    {
+      "root": "pork",
+      "before": 362,
+      "after": 130,
+      "removed": 232,
+      "clusterCount": 130,
+      "examplesKept": [
+        "Pork, bacon, rendered fat, cooked",
+        "Pork, belly",
+        "Pork, fresh, loin, whole, separable lean and fat, cooked, roasted",
+        "Pork, fresh, variety meats and by-products, tongue, cooked, braised",
+        "Pork, chop, coated, lean and fat eaten",
+        "Pork, chop, coated, lean only eaten",
+        "Pork, chop, coated, NS as to fat eaten",
+        "Pork, fresh, loin, whole, separable lean only, cooked, roasted"
+      ],
+      "examplesRemoved": [
+        "Pork, bones",
+        "Pork, ears",
+        "Pork, fresh, composite of trimmed retail cuts (leg, loin, shoulder, and spareribs), separable lean and fat, cooked",
+        "Pork, fresh, composite of trimmed retail cuts (loin and shoulder blade), separable lean and fat, cooked",
+        "Pork, fresh, leg (ham), shank half, separable lean and fat, cooked, roasted",
+        "Pork, fresh, loin, center loin (chops), boneless, separable lean and fat, cooked, pan-broiled",
+        "Pork, fresh, loin, center loin (roasts), bone-in, separable lean and fat, cooked, roasted",
+        "Pork, fresh, loin, center rib (chops), boneless, separable lean only, cooked, pan-fried"
+      ]
+    },
+    {
+      "root": "fish",
+      "before": 346,
+      "after": 118,
+      "removed": 228,
+      "clusterCount": 118,
+      "examplesKept": [
+        "Fish, anchovy, european, canned in oil, drained solids",
+        "Fish, salmon, pink, canned, without salt, solids with bone and liquid",
+        "Fish, drum, freshwater, cooked, dry heat",
+        "Fish, bass, baked or broiled, coated",
+        "Fish, tuna, light, canned in water, drained solids",
+        "Fish, bass, freshwater, mixed species, cooked, dry heat",
+        "Fish, bass, fried",
+        "Fish, bass, striped, cooked, dry heat"
+      ],
+      "examplesRemoved": [
+        "Fish, anchovy",
+        "Fish, anchovy, european, raw",
+        "Fish, bluefish, raw",
+        "Fish, haddock, baked or broiled",
+        "Fish, mullet, striped, raw",
+        "Fish, perch, grilled",
+        "Fish, salmon, chum, raw",
+        "Fish, Salmon, Chum, raw (Alaska Native)"
+      ]
+    },
+    {
+      "root": "beverages",
+      "before": 278,
+      "after": 73,
+      "removed": 205,
+      "clusterCount": 73,
+      "examplesKept": [
+        "Beverages, carbonated, cola, regular",
+        "Beverages, ABBOTT, EAS soy protein powder",
+        "Beverages, ABBOTT, EAS whey protein powder",
+        "Beverages, ABBOTT, ENSURE PLUS, ready-to-drink",
+        "Beverages, ABBOTT, ENSURE, Nutritional Shake, Ready-to-Drink",
+        "Beverages, Acai berry drink, fortified",
+        "Beverages, almond milk, chocolate, ready-to-drink",
+        "Beverages, almond milk, sweetened, vanilla flavor, ready-to-drink"
+      ],
+      "examplesRemoved": [
+        "Beverages,  Energy drink, Citrus",
+        "Beverages, carbonated, cola, without caffeine",
+        "Beverages, carbonated, grape soda",
+        "Beverages, carbonated, lemon-lime soda, no caffeine",
+        "Beverages, carbonated, pepper-type, contains caffeine",
+        "Beverages, carbonated, root beer",
+        "Beverages, carbonated, SPRITE, lemon-lime, without caffeine",
+        "Beverages, Chocolate-flavored drink, whey and milk based"
+      ]
+    },
+    {
+      "root": "lamb",
+      "before": 298,
+      "after": 109,
+      "removed": 189,
+      "clusterCount": 109,
+      "examplesKept": [
+        "Lamb, New Zealand, imported, frozen, loin, separable lean and fat, trimmed to 1/8\" fat, raw",
+        "Lamb, Australian, imported, fresh, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/8\" fat, cooked",
+        "Lamb, New Zealand, imported, frozen, foreshank, separable lean and fat, trimmed to 1/8\" fat, raw",
+        "Lamb, Australian, imported, fresh, rack, roast, frenched, denuded, bone-in, separable lean and fat, trimmed to 0\" fat, cooked, roasted",
+        "Lamb, Australian, imported, fresh, loin, separable lean only, trimmed to 1/8\" fat, raw",
+        "Lamb, Australian, imported, fresh, external fat, cooked",
+        "Lamb, Australian, imported, fresh, external fat, raw",
+        "Lamb, New Zealand, imported, frozen, leg, whole (shank and sirloin), separable lean and fat, cooked, roasted"
+      ],
+      "examplesRemoved": [
+        "Lamb, Australian, ground,  85% lean / 15% fat, raw",
+        "Lamb, Australian, imported, fresh, leg, sirloin half, boneless, separable lean and fat, trimmed to 1/8\" fat, raw",
+        "Lamb, Australian, imported, fresh, shoulder, blade, separable lean and fat, trimmed to 1/8\" fat, raw",
+        "Lamb, Australian, imported, fresh, shoulder, whole (arm and blade), separable lean and fat, trimmed to 1/8\" fat, raw",
+        "Lamb, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/4\" fat, choice, raw",
+        "Lamb, leg, sirloin half, separable lean and fat, trimmed to 1/4\" fat, choice, raw",
+        "Lamb, leg, sirloin half, separable lean and fat, trimmed to 1/8\" fat, choice, raw",
+        "Lamb, loin, separable lean and fat, trimmed to 1/8\" fat, choice, raw"
+      ]
+    },
+    {
+      "root": "babyfood",
+      "before": 236,
+      "after": 75,
+      "removed": 161,
+      "clusterCount": 75,
+      "examplesKept": [
+        "Babyfood, apple yogurt dessert, strained",
+        "Babyfood, apple-banana juice",
+        "Babyfood, apples with ham, strained",
+        "Babyfood, Baby MUM MUM Rice Biscuits",
+        "Babyfood, baked product, finger snacks cereal fortified",
+        "Babyfood, grape juice, no sugar, canned",
+        "Babyfood, banana juice with low fat yogurt",
+        "Babyfood, banana no tapioca, strained"
+      ],
+      "examplesRemoved": [
+        "Babyfood, apples, dices, toddler",
+        "Babyfood, fruit, applesauce and apricots, junior",
+        "Babyfood, fruit, applesauce and apricots, strained",
+        "Babyfood, fruit, applesauce, strained",
+        "Babyfood, fruit, pears and pineapple, junior",
+        "Babyfood, fruit, pears and pineapple, strained",
+        "Babyfood, fruit, pears, junior",
+        "Babyfood, fruit, pears, strained"
+      ]
+    },
+    {
+      "root": "soup",
+      "before": 231,
+      "after": 70,
+      "removed": 161,
+      "clusterCount": 70,
+      "examplesKept": [
+        "Soup, minestrone, canned, reduced sodium, ready-to-serve",
+        "Soup, pea, split with ham, canned, chunky, ready-to-serve",
+        "Soup, bean & ham, canned, reduced sodium, prepared with water or ready-to-serve",
+        "Soup, bean with bacon, condensed, single brand",
+        "Soup, bean with frankfurters, canned, condensed",
+        "Soup, bean with frankfurters, canned, prepared with equal volume water",
+        "Soup, bean with ham, canned, chunky, ready-to-serve",
+        "Soup, bean with pork, canned, condensed"
+      ],
+      "examplesRemoved": [
+        "Soup, barley",
+        "Soup, beef and vegetables, canned, ready-to-serve",
+        "Soup, beef noodle, canned, condensed",
+        "Soup, chicken noodle",
+        "Soup, chicken noodle, canned",
+        "Soup, chicken noodle, canned, condensed",
+        "Soup, chicken vegetable, canned, condensed",
+        "Soup, clam chowder, manhattan style, canned, chunky, ready-to-serve"
+      ]
+    },
+    {
+      "root": "infant formula",
+      "before": 160,
+      "after": 19,
+      "removed": 141,
+      "clusterCount": 19,
+      "examplesKept": [
+        "Infant formula, PBM PRODUCTS, store brand, soy, powder",
+        "Infant Formula, GERBER GOOD START 2, GENTLE PLUS, ready-to-feed",
+        "Infant formula, NESTLE, GOOD START SOY, with DHA and ARA, liquid concentrate",
+        "Infant formula, PBM PRODUCTS, store brand, powder",
+        "Infant Formula, MEAD JOHNSON, ENFAMIL, Premium LIPIL, Infant, powder",
+        "Infant formula, ABBOTT NUTRITION, SIMILAC, GO AND GROW, powder, with ARA and DHA",
+        "Infant formula, ABBOTT NUTRITION, SIMILAC, ISOMIL, with iron, powder, not reconstituted",
+        "Infant Formula, GERBER GOOD START 2, GENTLE PLUS, powder"
+      ],
+      "examplesRemoved": [
+        "Infant formula, ABBOTT NUTRITION, ALIMENTUM ADVANCE, with iron, powder, not reconstituted, with DHA and ARA",
+        "Infant formula, ABBOTT NUTRITION, SIMILAC, NEOSURE, powder, with ARA and DHA",
+        "Infant formula, MEAD JOHNSON, PREGESTIMIL, with iron, powder, with ARA and DHA, not reconstituted",
+        "Infant formula, ABBOTT NUTRITION, SIMILAC NEOSURE, ready-to-feed, with ARA and DHA",
+        "Infant formula, ABBOTT NUTRITION, SIMILAC, ADVANCE, with iron, ready-to-feed",
+        "Infant formula, ABBOTT NUTRITION, SIMILAC, ALIMENTUM, ADVANCE, ready-to-feed, with ARA and DHA",
+        "Infant formula, ABBOTT NUTRITION, SIMILAC, ALIMENTUM, with iron, ready-to-feed",
+        "Infant formula, ABBOTT NUTRITION, SIMILAC, Expert Care, Diarrhea, ready- to- feed with ARA and DHA"
+      ]
+    },
+    {
+      "root": "rice",
+      "before": 169,
+      "after": 29,
+      "removed": 140,
+      "clusterCount": 29,
+      "examplesKept": [
+        "Rice, brown and wild, cooked, fat added",
+        "Rice, white, long-grain, parboiled, enriched, cooked",
+        "Rice, white and wild, cooked, fat added",
+        "Rice, brown, long-grain, raw (Includes foods for USDA's Food Distribution Program)",
+        "Rice, brown, medium-grain, cooked (Includes foods for USDA's Food Distribution Program)",
+        "Rice, brown, parboiled, cooked, UNCLE BENS",
+        "Rice, brown, parboiled, dry, UNCLE BEN'S",
+        "Rice, brown, with carrots and dark green vegetables, fat added"
+      ],
+      "examplesRemoved": [
+        "Rice, brown, cooked, fat added, made with oil",
+        "Rice, brown, cooked, fat added, NS as to fat type",
+        "Rice, brown, cooked, made with butter",
+        "Rice, brown, cooked, made with margarine",
+        "Rice, brown, with corn, fat added",
+        "Rice, brown, with corn, NS as to fat",
+        "Rice, white, with corn, fat added",
+        "Rice, white, with corn, NS as to fat"
+      ]
+    },
+    {
+      "root": "chicken",
+      "before": 242,
+      "after": 116,
+      "removed": 126,
+      "clusterCount": 116,
+      "examplesKept": [
+        "Chicken, broilers or fryers, back, meat and skin, cooked, roasted",
+        "Chicken, broiler or fryers, breast, skinless, boneless, meat only, cooked, braised",
+        "Chicken, broilers or fryers, breast, meat only, cooked, roasted",
+        "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw",
+        "Chicken, roasting, light meat, meat only, cooked, roasted",
+        "Chicken, broiler or fryers, breast, skinless, boneless, meat only, with added solution, cooked, grilled",
+        "Chicken, broiler, rotisserie, BBQ, back meat only",
+        "Chicken, broilers or fryers, neck, meat and skin, cooked simmered"
+      ],
+      "examplesRemoved": [
+        "Chicken, back",
+        "Chicken, broiler or fryers, breast, skinless, boneless, meat only, cooked, braised",
+        "Chicken, broiler or fryers, breast, skinless, boneless, meat only, cooked, grilled",
+        "Chicken, broilers or fryers, light meat, meat only, cooked, roasted",
+        "Chicken, gizzard, all classes, cooked, simmered",
+        "Chicken, broilers or fryers, light meat, meat only, raw",
+        "Chicken, broilers or fryers, wing, meat only, raw",
+        "Chicken, roasting, light meat, meat only, raw"
+      ]
+    },
+    {
+      "root": "bread",
+      "before": 185,
+      "after": 98,
+      "removed": 87,
+      "clusterCount": 98,
+      "examplesKept": [
+        "Bread, banana, prepared from recipe, made with margarine",
+        "Bread, rice bran, toasted",
+        "Bread, barley, toasted",
+        "Bread, white, commercially prepared",
+        "Bread, rye, toasted",
+        "Bread, blue corn, somiviki (Hopi)",
+        "Bread, boston brown, canned",
+        "Bread, chapati or roti, plain, commercially prepared"
+      ],
+      "examplesRemoved": [
+        "Bread, barley",
+        "Bread, Boston Brown",
+        "Bread, wheat",
+        "Bread, wheat or cracked wheat",
+        "Bread, whole wheat, made from home recipe or purchased at bakery",
+        "Bread, wheat or cracked wheat, toasted",
+        "Bread, whole wheat, made from home recipe or purchased at bakery, toasted",
+        "Bread, black"
+      ]
+    },
+    {
+      "root": "turkey",
+      "before": 140,
+      "after": 55,
+      "removed": 85,
+      "clusterCount": 55,
+      "examplesKept": [
+        "Turkey, all classes, back, meat and skin, cooked, roasted",
+        "Turkey, all classes, breast, meat and skin, cooked, roasted",
+        "Turkey, all classes, breast, meat and skin, raw",
+        "Turkey, all classes, gizzard, cooked, simmered",
+        "Turkey, all classes, heart, cooked, simmered",
+        "Turkey, all classes, heart, raw",
+        "Turkey, all classes, leg, meat and skin, cooked, roasted",
+        "Turkey, all classes, leg, meat and skin, raw"
+      ],
+      "examplesRemoved": [
+        "Turkey, retail parts, drumstick, meat only, cooked, roasted",
+        "Turkey, thigh, from whole bird, meat only, roasted",
+        "Turkey, whole, back, meat only, cooked, roasted",
+        "Turkey, whole, dark meat, cooked, roasted",
+        "Turkey, whole, light meat, meat and skin, cooked, roasted",
+        "Turkey, whole, meat and skin, cooked, roasted",
+        "Turkey, neck",
+        "Turkey, retail parts, breast, meat and skin, raw"
+      ]
+    },
+    {
+      "root": "beans",
+      "before": 120,
+      "after": 35,
+      "removed": 85,
+      "clusterCount": 35,
+      "examplesKept": [
+        "Beans, adzuki, mature seed, cooked, boiled, with salt",
+        "Beans, adzuki, mature seeds, canned, sweetened",
+        "Beans, adzuki, mature seeds, raw",
+        "Beans, baked, canned, no salt added",
+        "Beans, baked, canned, with beef",
+        "Beans, baked, canned, with franks",
+        "Beans, baked, canned, with pork",
+        "Beans, baked, canned, with pork and tomato sauce"
+      ],
+      "examplesRemoved": [
+        "Beans, adzuki, mature seeds, cooked, boiled, without salt",
+        "Beans, black turtle, mature seeds, cooked, boiled, with salt",
+        "Beans, black turtle, mature seeds, cooked, boiled, without salt",
+        "Beans, black, mature seeds, cooked, boiled, with salt",
+        "Beans, black, mature seeds, cooked, boiled, without salt",
+        "Beans, cranberry (roman), mature seeds, cooked, boiled, with salt",
+        "Beans, cranberry (roman), mature seeds, cooked, boiled, without salt",
+        "Beans, french, mature seeds, cooked, boiled, with salt"
+      ]
+    },
+    {
+      "root": "egg omelet or scrambled egg",
+      "before": 82,
+      "after": 9,
+      "removed": 73,
+      "clusterCount": 9,
+      "examplesKept": [
+        "Egg omelet or scrambled egg, with cheese and tomatoes, fat added",
+        "Egg omelet or scrambled egg, no added fat",
+        "Egg omelet or scrambled egg, with meat and tomatoes, fat added",
+        "Egg omelet or scrambled egg, with cheese and meat, made with butter",
+        "Egg omelet or scrambled egg, with cheese and meat, no added fat",
+        "Egg omelet or scrambled egg, with dark-green vegetables, fat added",
+        "Egg omelet or scrambled egg, with dark-green vegetables, no added fat",
+        "Egg omelet or scrambled egg, with potatoes and/or onions, fat added"
+      ],
+      "examplesRemoved": [
+        "Egg omelet or scrambled egg, from fast food / restaurant",
+        "Egg omelet or scrambled egg, made with animal fat or meat drippings",
+        "Egg omelet or scrambled egg, made with butter",
+        "Egg omelet or scrambled egg, made with oil",
+        "Egg omelet or scrambled egg, NS as to fat",
+        "Egg omelet or scrambled egg, NS as to fat type",
+        "Egg omelet or scrambled egg, with cheese and dark-green vegetables, fat added",
+        "Egg omelet or scrambled egg, with cheese and dark-green vegetables, NS as to fat"
+      ]
+    },
+    {
+      "root": "oil",
+      "before": 76,
+      "after": 4,
+      "removed": 72,
+      "clusterCount": 4,
+      "examplesKept": [
+        "Oil, almond",
+        "Oil, coconut",
+        "Oil, PAM cooking spray, original",
+        "Oil, soybean lecithin"
+      ],
+      "examplesRemoved": [
+        "Oil, apricot kernel",
+        "Oil, avocado",
+        "Oil, babassu",
+        "Oil, bearded seal (Oogruk) (Alaska Native)",
+        "Oil, beluga, whale (Alaska Native)",
+        "Oil, canola",
+        "Oil, cocoa butter",
+        "Oil, coconut"
+      ]
+    },
+    {
+      "root": "potato",
+      "before": 106,
+      "after": 38,
+      "removed": 68,
+      "clusterCount": 38,
+      "examplesKept": [
+        "Potato, boiled, from fresh,  peel eaten, no added fat",
+        "Potato, boiled, from fresh, peel eaten, fat added, NS as to fat type",
+        "Potato, baked, peel eaten, with cheese",
+        "Potato, baked, peel eaten, with chili",
+        "Potato, baked, peel eaten, with sour cream",
+        "Potato, canned, fat added, NS as to fat type",
+        "Potato, canned, no added fat",
+        "Potato, cooked, as ingredient"
+      ],
+      "examplesRemoved": [
+        "Potato, baked, NFS",
+        "Potato, baked, peel eaten",
+        "Potato, baked, peel not eaten",
+        "Potato, boiled, from fresh, peel not eaten, no added fat",
+        "Potato, roasted, from fresh, peel eaten, no added fat",
+        "Potato, roasted, from fresh, peel not eaten, no added fat",
+        "Potato, baked, peel eaten, with butter",
+        "Potato, baked, peel not eaten, with butter"
+      ]
+    },
+    {
+      "root": "coffee",
+      "before": 84,
+      "after": 21,
+      "removed": 63,
+      "clusterCount": 21,
+      "examplesKept": [
+        "Coffee, bottled/canned",
+        "Coffee, bottled/canned, light",
+        "Coffee, brewed, blend of regular and decaffeinated",
+        "Coffee, Cafe Mocha",
+        "Coffee, Cafe Mocha, decaffeinated, nonfat",
+        "Coffee, Cafe Mocha, decaffeinated, with non-dairy milk",
+        "Coffee, Cappuccino",
+        "Coffee, Cappuccino, decaffeinated, with non-dairy milk"
+      ],
+      "examplesRemoved": [
+        "Coffee, cafe con leche",
+        "Coffee, cafe con leche, decaffeinated",
+        "Coffee, Iced Latte, decaffeinated, flavored",
+        "Coffee, Iced Latte, decaffeinated, nonfat, flavored",
+        "Coffee, Iced Latte, decaffeinated, with non-dairy milk, flavored",
+        "Coffee, Iced Latte, flavored",
+        "Coffee, Iced Latte, nonfat, flavored",
+        "Coffee, Iced Latte, with non-dairy milk, flavored"
+      ]
+    },
+    {
+      "root": "yogurt",
+      "before": 84,
+      "after": 27,
+      "removed": 57,
+      "clusterCount": 27,
+      "examplesKept": [
+        "Yogurt, almond milk",
+        "Yogurt, chocolate, nonfat milk",
+        "Yogurt, coconut milk",
+        "Yogurt, frozen, flavors not chocolate, nonfat milk, with low-calorie sweetener",
+        "Yogurt, frozen, flavors other than chocolate, lowfat",
+        "Yogurt, Greek, strawberry, lowfat",
+        "Yogurt, Greek, 2% fat, strawberry banana, CHOBANI",
+        "Yogurt, Greek, strawberry, nonfat"
+      ],
+      "examplesRemoved": [
+        "Yogurt, chocolate, nonfat milk, fortified with vitamin D",
+        "Yogurt, fruit variety, nonfat",
+        "Yogurt, fruit variety, nonfat, fortified with vitamin D",
+        "Yogurt, fruit, low fat, 10 grams protein per 8 ounce",
+        "Yogurt, fruit, low fat, 10 grams protein per 8 ounce, fortified with vitamin D",
+        "Yogurt, fruit, low fat, 11g protein/8 oz",
+        "Yogurt, fruit, low fat, 9 grams protein per 8 ounce, fortified with vitamin D",
+        "Yogurt, fruit, low fat,9 g protein/8 oz"
+      ]
+    },
+    {
+      "root": "milk",
+      "before": 75,
+      "after": 22,
+      "removed": 53,
+      "clusterCount": 22,
+      "examplesKept": [
+        "Milk, buttermilk, dried",
+        "Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D",
+        "Milk, whole, 3.25% milkfat, with added vitamin D",
+        "Milk, canned, condensed, sweetened",
+        "Milk, canned, evaporated, nonfat, with added vitamin A and vitamin D",
+        "Milk, canned, evaporated, with added vitamin A",
+        "Milk, chocolate beverage, hot cocoa, homemade",
+        "Milk, chocolate, fat free, with added vitamin A and vitamin D"
+      ],
+      "examplesRemoved": [
+        "Milk, buttermilk, fluid, cultured, lowfat",
+        "Milk, buttermilk, fluid, cultured, reduced fat",
+        "Milk, dry, reconstituted, nonfat",
+        "Milk, fat free (skim)",
+        "Milk, fluid, 1% fat, without added vitamin A and vitamin D",
+        "Milk, fluid, nonfat, calcium fortified (fat free or skim)",
+        "Milk, lactose free, fat free (skim)",
+        "Milk, lactose free, low fat (1%)"
+      ]
+    },
+    {
+      "root": "cheese",
+      "before": 138,
+      "after": 87,
+      "removed": 51,
+      "clusterCount": 87,
+      "examplesKept": [
+        "Cheese,  with wine",
+        "Cheese, American",
+        "Cheese, american cheddar, imitation",
+        "Cheese, American, nonfat or fat free",
+        "Cheese, American, reduced sodium",
+        "Cheese, American, restaurant",
+        "Cheese, blue",
+        "Cheese, brick"
+      ],
+      "examplesRemoved": [
+        "Cheese, processed cheese food",
+        "Cheese, American and Swiss blends",
+        "Cheese, American, reduced fat",
+        "Cheese, pasteurized process, cheddar or American, low sodium",
+        "Cheese, pasteurized process, pimento",
+        "Cheese, roquefort",
+        "Cheese, Blue or Roquefort",
+        "Cheese, Mexican blend"
+      ]
+    },
+    {
+      "root": "snacks",
+      "before": 144,
+      "after": 95,
+      "removed": 49,
+      "clusterCount": 95,
+      "examplesKept": [
+        "Snacks, bagel chips, plain",
+        "Snacks, banana chips",
+        "Snacks, beef jerky, chopped and formed",
+        "Snacks, beef sticks, smoked",
+        "Snacks, brown rice chips",
+        "Snacks, candy bits, yogurt covered with vitamin C",
+        "Snacks, candy rolls, yogurt-covered, fruit flavored with high vitamin C",
+        "Snacks, CLIF BAR, mixed flavors"
+      ],
+      "examplesRemoved": [
+        "Snacks, rice cakes, brown rice, corn",
+        "Snacks, rice cakes, brown rice, plain, unsalted",
+        "Snacks, rice cakes, brown rice, sesame seed",
+        "Snacks, rice cakes, brown rice, sesame seed, unsalted",
+        "Snacks, rice cracker brown rice, plain",
+        "Snacks, corn cakes, very low sodium",
+        "Snacks, corn-based, extruded, chips, barbecue-flavor, made with enriched masa flour",
+        "Snacks, corn-based, extruded, chips, unsalted"
+      ]
+    },
+    {
+      "root": "pasta",
+      "before": 76,
+      "after": 27,
+      "removed": 49,
+      "clusterCount": 27,
+      "examplesKept": [
+        "Pasta, cooked, enriched, with added salt",
+        "Pasta, dry, enriched",
+        "Pasta, fresh-refrigerated, plain, as purchased",
+        "Pasta, fresh-refrigerated, plain, cooked",
+        "Pasta, gluten-free, corn and rice flour, cooked",
+        "Pasta, gluten-free, brown rice flour, cooked, TINKYADA",
+        "Pasta, gluten-free, corn flour and quinoa flour, cooked, ANCIENT HARVEST",
+        "Pasta, gluten-free, corn, cooked"
+      ],
+      "examplesRemoved": [
+        "Pasta, cooked",
+        "Pasta, cooked, enriched, without added salt",
+        "Pasta, cooked, unenriched, with added salt",
+        "Pasta, cooked, unenriched, without added salt",
+        "Pasta, whole grain, 51% whole wheat, remaining enriched semolina, cooked (Includes foods for USDA's Food Distribution Program)",
+        "Pasta, whole grain, 51% whole wheat, remaining unenriched semolina, cooked",
+        "Pasta, whole grain, cooked",
+        "Pasta, whole-wheat, cooked (Includes foods for USDA's Food Distribution Program)"
+      ]
+    },
+    {
+      "root": "cereals",
+      "before": 85,
+      "after": 36,
+      "removed": 49,
+      "clusterCount": 36,
+      "examplesKept": [
+        "Cereals, corn grits, yellow, regular, quick, enriched, cooked with water, with salt",
+        "Cereals, corn grits, white, regular and quick, enriched, dry",
+        "Cereals, corn grits, yellow, regular and quick, unenriched, dry",
+        "Cereals, CREAM OF WHEAT, regular (10 minute), cooked with water, with salt",
+        "Cereals, CREAM OF RICE, dry",
+        "Cereals, CREAM OF WHEAT, 1 minute cook time, cooked with water, microwaved, without salt",
+        "Cereals, CREAM OF WHEAT, 1 minute cook time, dry",
+        "Cereals, CREAM OF WHEAT, regular, 10 minute cooking, dry"
+      ],
+      "examplesRemoved": [
+        "Cereals, corn grits, white, regular and quick, enriched, cooked with water, with salt",
+        "Cereals, corn grits, white, regular and quick, enriched, cooked with water, without salt",
+        "Cereals, corn grits, yellow, regular and quick, enriched, cooked with water, without salt",
+        "Cereals, CREAM OF WHEAT, instant, prepared with water, without salt",
+        "Cereals, QUAKER, QUAKER MultiGrain Oatmeal, prepared with water, no salt",
+        "Cereals, QUAKER, QUAKER MultiGrain Oatmeal, prepared with water, salt",
+        "Cereals, whole wheat hot natural cereal, cooked with water, with salt",
+        "Cereals, whole wheat hot natural cereal, cooked with water, without salt"
+      ]
+    },
+    {
+      "root": "cereals ready-to-eat",
+      "before": 108,
+      "after": 60,
+      "removed": 48,
+      "clusterCount": 60,
+      "examplesKept": [
+        "Cereals ready-to-eat, ALPEN",
+        "Cereals ready-to-eat, BARBARA'S PUFFINS, original",
+        "Cereals ready-to-eat, chocolate-flavored frosted puffed corn",
+        "Cereals ready-to-eat, FAMILIA",
+        "Cereals ready-to-eat, frosted oat cereal with marshmallows",
+        "Cereals ready-to-eat, GENERAL MILLS, CHEERIOS",
+        "Cereals ready-to-eat, granola, homemade",
+        "Cereals ready-to-eat, HEALTH VALLEY, FIBER 7 Flakes"
+      ],
+      "examplesRemoved": [
+        "Cereals ready-to-eat, QUAKER, KING VITAMAN",
+        "Cereals ready-to-eat, QUAKER, QUAKER CRUNCHY BRAN",
+        "Cereals ready-to-eat, MALT-O-MEAL, BERRY COLOSSAL CRUNCH",
+        "Cereals ready-to-eat, MALT-O-MEAL, CHOCOLATE MARSHMALLOW MATEYS",
+        "Cereals ready-to-eat, MALT-O-MEAL, COCO-ROOS",
+        "Cereals ready-to-eat, MALT-O-MEAL, Cocoa DYNO-BITES",
+        "Cereals ready-to-eat, MALT-O-MEAL, TOOTIE FRUITIES",
+        "Cereals ready-to-eat, POST, COCOA PEBBLES"
+      ]
+    },
+    {
+      "root": "alcoholic beverage",
+      "before": 65,
+      "after": 18,
+      "removed": 47,
+      "clusterCount": 18,
+      "examplesKept": [
+        "Alcoholic beverage, beer, light",
+        "Alcoholic beverage, beer, regular, all",
+        "Alcoholic beverage, creme de menthe, 72 proof",
+        "Alcoholic beverage, daiquiri, canned",
+        "Alcoholic beverage, daiquiri, prepared-from-recipe",
+        "Alcoholic beverage, distilled, all (gin, rum, vodka, whiskey) 86 proof",
+        "Alcoholic beverage, distilled, all (gin, rum, vodka, whiskey) 80 proof",
+        "Alcoholic beverage, liqueur, coffee with cream, 34 proof"
+      ],
+      "examplesRemoved": [
+        "Alcoholic beverage, beer, light, BUD LIGHT",
+        "Alcoholic beverage, beer, light, BUDWEISER SELECT",
+        "Alcoholic beverage, beer, light, higher alcohol",
+        "Alcoholic beverage, beer, light, low carb",
+        "Alcoholic beverage, wine, light",
+        "Alcoholic Beverage, wine, table, red, Carignane",
+        "Alcoholic Beverage, wine, table, red, Claret",
+        "Alcoholic Beverage, wine, table, red, Gamay"
+      ]
+    }
+  ]
+}

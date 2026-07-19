@@ -1,0 +1,22 @@
+.env
+.env.*
+.vercel/
+node_modules/
+
+# Local/generated USDA import data. These files are too large for the deploy bundle.
+data/usda/*.zip
+data/usda/*.ndjson
+data/usda/*.csv
+data/usda/*/
+!data/usda/
+!data/usda/foods-search-v1.json
+
+# Local tooling and generated desktop-app artifacts are not needed by the website runtime.
+tools/
+Calorie counter application/.git/
+Calorie counter application/.agents/
+Calorie counter application/__pycache__/
+Calorie counter application/build/
+Calorie counter application/dist_qt/
+Calorie counter application/*.spec
+Calorie counter application/*.json

@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f172a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GYMRAT">
+<link rel="apple-touch-icon" sizes="180x180" href="Pictures/Logos/apple-touch-icon.png">
+<title>GYMRAT - Diet Stats</title>
+<link rel="icon" type="image/webp" href="Pictures/Logos/Icon.webp">
+<link rel="stylesheet" href="Css.css?v=229">
+</head>
+<body class="page-diet has-mobile-footer">
+    <button type="button" class="site-menu-button" data-site-menu-button="true" aria-label="Open menu" aria-expanded="false" title="Menu" onclick="openShalevMenu()">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="site-menu-modal" id="siteMenuModal" hidden>
+        <div class="site-menu-dialog" role="dialog" aria-modal="true">
+            <button type="button" class="site-menu-close" aria-label="Close menu" title="Close" onclick="closeShalevMenu()">&times;</button>
+            <div class="site-menu-section site-menu-user-section">
+                <h3 class="site-menu-section-title site-menu-user" data-site-menu-user="true" title="User">User</h3>
+                <a class="site-menu-link" href="MainPage.html">Home</a>
+                <button type="button" class="site-menu-action" onclick="openDietApp(event)">Diet</button>
+                <a class="site-menu-link" href="MyFoods.html">My foods</a>
+                <button type="button" class="site-menu-action" onclick="window.location.href = 'MainPage.html?settings=1';">Settings</button>
+            </div>
+            <div class="site-menu-section">
+                <h3 class="site-menu-section-title">Workouts</h3>
+                <a class="site-menu-link site-menu-indent" href="WeightsTrackingMenu.html">Progressive overload</a>
+                <a class="site-menu-link site-menu-indent" href="WorkoutPlanMainPage.html">Workout Plan</a>
+                <a class="site-menu-link site-menu-indent" href="GymWorkoutPlanner.html">Workout builder</a>
+                <a class="site-menu-link site-menu-indent" href="MyPlans.html">Saved plans</a>
+            </div>
+            <div class="site-menu-section">
+                <h3 class="site-menu-section-title">Information</h3>
+                <a class="site-menu-link site-menu-indent" href="Anatomy.html">Anatomy</a>
+                <a class="site-menu-link site-menu-indent" href="ExercisesGuide.html">Training guide</a>
+                <a class="site-menu-link site-menu-indent" href="Favorites.html">Saved workouts</a>
+                <a class="site-menu-link site-menu-indent" href="DietStats.html">Diet stats</a>
+                <button type="button" class="site-menu-action site-menu-indent" onclick="alert('Researches are still in process.');">Researches</button>
+            </div>
+        </div>
+    </div>
+    <aside class="main-sidebar" aria-label="Main navigation">
+        <div class="main-sidebar-top">
+            <p class="main-sidebar-user" data-site-sidebar-user="true" title="User">User</p>
+            <a class="main-sidebar-link" href="MainPage.html">Home</a>
+            <a class="main-sidebar-link main-sidebar-diet" href="Diet.html">Diet</a>
+            <a class="main-sidebar-link" href="MyFoods.html">My foods</a>
+            <a class="main-sidebar-link main-sidebar-settings" href="MainPage.html?settings=1">Settings</a>
+        </div>
+        <nav class="main-sidebar-nav">
+            <p class="main-sidebar-category" title="Workouts">Workouts</p>
+            <a class="main-sidebar-link" href="WeightsTrackingMenu.html">Progressive overload</a>
+            <a class="main-sidebar-link" href="WorkoutPlanMainPage.html">Workout Plan</a>
+            <a class="main-sidebar-link" href="GymWorkoutPlanner.html">Workout builder</a>
+            <a class="main-sidebar-link" href="MyPlans.html">Saved plans</a>
+            <p class="main-sidebar-category" title="Information">Information</p>
+            <a class="main-sidebar-link" href="Anatomy.html">Anatomy</a>
+            <a class="main-sidebar-link" href="ExercisesGuide.html">Training guide</a>
+            <a class="main-sidebar-link" href="Favorites.html">Saved workouts</a>
+            <a class="main-sidebar-link is-active" href="DietStats.html">Diet stats</a>
+            <a class="main-sidebar-link" href="#" onclick="alert('Researches are still in process.'); return false;">Researches</a>
+        </nav>
+    </aside>
+
+    <main class="diet-shell diet-stats-shell">
+        <section class="diet-hero">
+            <div>
+                <p class="diet-kicker">Diet stats</p>
+                <h1>Diet Stats</h1>
+                <p>Last 7 completed days are shown here. Month and year reports download as standalone HTML files.</p>
+                <a class="diet-edit-setup-link" href="Diet.html">Back to diet</a>
+            </div>
+        </section>
+
+        <section class="diet-workspace">
+            <article class="diet-panel diet-form-panel">
+                <div class="diet-panel-heading">
+                    <div>
+                        <p class="diet-kicker">Last 7 completed days</p>
+                        <h2>Goal results</h2>
+                    </div>
+                    <p id="dietSaveStatus" aria-live="polite"></p>
+                </div>
+                <div id="dietStatsLastSeven"></div>
+            </article>
+
+            <article class="diet-panel diet-form-panel">
+                <div class="diet-panel-heading">
+                    <div>
+                        <p class="diet-kicker">Download report</p>
+                        <h2>Month or year HTML</h2>
+                    </div>
+                </div>
+                <p class="diet-stats-note">When diet history reaches 14 months, the old year is automatically removed and the most recent 2 months stay saved. Download reports before they expire.</p>
+                <div class="diet-stats-download-controls">
+                    <label>Report
+                        <select id="dietStatsReportType">
+                            <option value="month">One month</option>
+                            <option value="months">A few months</option>
+                            <option value="year">One year</option>
+                        </select>
+                    </label>
+                    <label data-stats-report-fields="month">Month
+                        <input id="dietStatsReportMonth" type="month">
+                    </label>
+                    <div data-stats-report-fields="months" hidden>
+                        <label>Start month <input id="dietStatsReportStartMonth" type="month"></label>
+                        <label>End month <input id="dietStatsReportEndMonth" type="month"></label>
+                    </div>
+                    <label data-stats-report-fields="year" hidden>Year
+                        <input id="dietStatsReportYear" type="number" min="2000" max="2100" step="1">
+                    </label>
+                    <button type="button" id="dietStatsDownloadButton">Download HTML report</button>
+                </div>
+            </article>
+        </section>
+        <input id="dietCustomDate" type="hidden">
+        <input type="hidden" id="foodTextInput" value="">
+    </main>
+
+    <footer class="main-mobile-footer" data-no-i18n aria-label="Mobile quick navigation">
+        <a class="main-mobile-footer-item" href="MainPage.html" aria-label="Home" title="Home">
+            <svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-home" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.5 10.8V19h11v-8.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 19v-5h4v5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="main-mobile-footer-item is-active" href="Diet.html" aria-label="Diet" title="Diet"><span class="main-mobile-footer-icon" aria-hidden="true">&#127831;</span></a>
+        <a class="main-mobile-footer-item" href="WorkoutPlanMainPage.html" aria-label="Workout plan" title="Workout plan"><svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-table" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 10h16M4 15h16M9 5v14M15 5v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+        <a class="main-mobile-footer-item" href="WeightsTrackingMenu.html" aria-label="Progressive overload" title="Progressive overload"><img src="Pictures/Logos/Img_no_star.webp" alt="" class="main-mobile-footer-gymrat" aria-hidden="true"></a>
+        <a class="main-mobile-footer-item" href="Anatomy.html" aria-label="Anatomy" title="Anatomy"><img src="Pictures/Animations/Animation_full_body.webp" alt="" class="main-mobile-footer-anatomy" aria-hidden="true"></a>
+        <a class="main-mobile-footer-item" href="MainPage.html?settings=1" aria-label="Settings" title="Settings"><svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-gear" aria-hidden="true"><path d="M12 8.5A3.5 3.5 0 1 0 12 15.5A3.5 3.5 0 1 0 12 8.5Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M19 12a7 7 0 0 0-.08-1l2.02-1.57-2-3.46-2.42 1a7.8 7.8 0 0 0-1.73-1l-.37-2.58h-4l-.37 2.58a7.8 7.8 0 0 0-1.73 1l-2.42-1-2 3.46L5.08 11A7 7 0 0 0 5 12a7 7 0 0 0 .08 1l-2.02 1.57 2 3.46 2.42-1a7.8 7.8 0 0 0 1.73 1l.37 2.58h4l.37-2.58a7.8 7.8 0 0 0 1.73-1l2.42 1 2-3.46L18.92 13A7 7 0 0 0 19 12Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
+    </footer>
+
+<script src="auth.js?v=230"></script>
+<script src="i18n.js?v=26"></script>
+<script src="Diet.js?v=236"></script>
+<script src="SiteNav.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

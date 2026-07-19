@@ -1,0 +1,13 @@
+{
+  "name": "sport-website",
+  "version": "1.0.0",
+  "description": "Sport website frontend with Vercel API routes and MongoDB Atlas",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@zxing/browser": "^0.2.1",
+    "@zxing/library": "^0.23.0",
+    "mongodb": "^6.17.0"
+  }
+}

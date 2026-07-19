@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="GYMRAT">
+    <link rel="apple-touch-icon" sizes="180x180" href="Pictures/Logos/apple-touch-icon.png">
+    <title>GYMRAT - Login</title>
+    <link rel="icon" type="image/webp" href="Pictures/Logos/Icon.webp">
+    <link rel="stylesheet" href="Css.css?v=229">
+</head>
+<body class="page-login">
+    <aside class="app-install-prompts" aria-label="Install GYMRAT" hidden>
+        <button class="app-install-card android-install-card" type="button" aria-haspopup="dialog" aria-controls="androidInstallModal" hidden>
+            <span class="app-install-kicker">Android App</span>
+            <span class="app-install-title">Install GYMRAT</span>
+            <span class="app-install-subtitle">Add it to your phone and use it offline</span>
+        </button>
+
+        <button class="app-install-card ios-install-card" type="button" aria-haspopup="dialog" aria-controls="iosInstallModal" hidden>
+            <span class="app-install-kicker">iPhone App</span>
+            <span class="app-install-title">iPhone Install Info</span>
+            <span class="app-install-subtitle">Use Safari to add it to your Home Screen</span>
+        </button>
+
+        <button class="app-install-card pc-install-card" type="button" aria-haspopup="dialog" aria-controls="pcInstallModal" hidden>
+            <span class="app-install-kicker" id="desktopInstallKicker">Desktop App</span>
+            <span class="app-install-title" id="desktopInstallTitle">Install GYMRAT on Desktop</span>
+            <span class="app-install-subtitle">Use Chrome or Edge to install it like an app</span>
+        </button>
+    </aside>
+
+    <div class="android-install-modal install-modal" id="androidInstallModal" role="dialog" aria-modal="true" aria-labelledby="androidInstallTitle" hidden>
+        <div class="install-dialog">
+            <button class="install-close android-install-close" type="button" aria-label="Close Android install guide">&times;</button>
+            <p class="app-install-kicker">Android Install</p>
+            <h2 id="androidInstallTitle">Install GYMRAT on Android</h2>
+            <p class="install-message">Chrome can install this website as an Android app. It opens from your Home Screen and can keep working offline after it is cached.</p>
+            <div class="install-actions">
+                <button class="install-action android-install-confirm" type="button">Install</button>
+                <button class="install-cancel android-install-cancel" type="button">Cancel</button>
+            </div>
+            <ol class="android-install-steps" hidden>
+                <li>Open this website in Chrome on Android.</li>
+                <li>Tap the browser menu.</li>
+                <li>Tap Install app or Add to Home screen.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="ios-install-modal install-modal" id="iosInstallModal" role="dialog" aria-modal="true" aria-labelledby="iosInstallTitle" hidden>
+        <div class="install-dialog">
+            <button class="install-close ios-install-close" type="button" aria-label="Close iPhone install guide">&times;</button>
+            <p class="app-install-kicker">iPhone Install</p>
+            <h2 id="iosInstallTitle">Install GYMRAT on iPhone</h2>
+            <p class="install-message">Open this website in Safari or Chrome, tap Share, then tap Add to Home Screen. If you do not see it right away, tap More or View More and choose Add to Home Screen there.</p>
+            <div class="install-actions">
+                <button class="ios-copy-link" type="button">Copy Link</button>
+                <button class="install-cancel ios-install-cancel" type="button">Cancel</button>
+            </div>
+            <p class="ios-copy-status" aria-live="polite"></p>
+        </div>
+    </div>
+
+    <div class="pc-install-modal install-modal" id="pcInstallModal" role="dialog" aria-modal="true" aria-labelledby="pcInstallTitle" hidden>
+        <div class="install-dialog">
+            <button class="install-close pc-install-close" type="button" aria-label="Close PC install guide">&times;</button>
+            <p class="app-install-kicker" id="desktopModalKicker">Desktop Install</p>
+            <h2 id="pcInstallTitle">Attention, you are about to install GYMRAT on this desktop</h2>
+            <p class="install-message">Chrome or Edge can install this website as an app on your computer. If the browser install popup is not available, you will see the manual steps.</p>
+            <div class="install-actions">
+                <button class="install-action pc-install-confirm" type="button">Install</button>
+                <button class="install-cancel pc-install-cancel" type="button">Cancel</button>
+            </div>
+            <ol class="pc-install-steps" hidden>
+                <li>Open this website in Chrome or Edge.</li>
+                <li>Click the install icon in the address bar or browser menu.</li>
+                <li>Click Install.</li>
+            </ol>
+        </div>
+    </div>
+
+    <main class="login-shell">
+        <div class="auth-layout">
+            <section class="auth-card auth-login-card" id="loginPanel">
+                <div class="auth-brand-row">
+                    <img src="Pictures/Logos/Icon.webp" class="logo" alt="GYMRAT Logo">
+                    <span>GYMRAT</span>
+                </div>
+                <p class="auth-card-kicker">Sign in</p>
+                <h1>Login</h1>
+
+                <div class="auth-google-register-panel auth-google-login-panel">
+                    <p class="auth-google-title">Sign in with Google</p>
+                    <button type="button" id="googleLoginButton" class="auth-google-native-button"><span class="auth-google-mark">G</span><span>Continue with Google</span></button>
+                    <p class="auth-google-help" id="googleLoginHelp">Choose your Google account to sign in.</p>
+                </div>
+
+                <p id="loginMsg" class="auth-message" aria-live="polite"></p>
+
+                <p class="auth-switch">Don't have an account? <a href="#registerPanel">Register</a></p>
+            </section>
+
+            <section class="auth-card auth-card-primary" id="registerPanel">
+                <div class="auth-brand-row">
+                    <img src="Pictures/Logos/Icon.webp" class="logo" alt="GYMRAT Logo">
+                    <span>GYMRAT</span>
+                </div>
+                <p class="auth-card-kicker">Get started free</p>
+                <h1>Create your GYMRAT account</h1>
+                <p class="auth-lede">Create workout plans, explore body anatomy, save your training tools, and keep using GYMRAT offline after setup.</p>
+
+                <label for="registerUsername">Username*</label>
+                <input type="text" id="registerUsername" placeholder="Choose a username" autocomplete="username">
+
+                <div class="auth-google-register-panel">
+                    <p class="auth-google-title">Continue with Google</p>
+                    <button type="button" id="googleRegisterButton" class="auth-google-native-button"><span class="auth-google-mark">G</span><span>Continue with Google</span></button>
+                    <div class="auth-google-selected" id="googleRegisterSelected" hidden>
+                        <img id="googleRegisterPicture" alt="" aria-hidden="true">
+                        <span id="googleRegisterEmail"></span>
+                        <button type="button" id="clearGoogleRegisterButton">Change</button>
+                    </div>
+                    <p class="auth-google-help" id="googleRegisterHelp">Choose your Google account, then choose your username.</p>
+                </div>
+
+                <label class="auth-check-row">
+                    <input type="checkbox" id="registerTerms">
+                    <span>I accept the <a href="TermsOfUse.html">Terms of Use</a>.</span>
+                </label>
+
+                <button onclick="register()">Create account</button>
+                <p id="registerMsg" class="auth-message" aria-live="polite"></p>
+
+                <p class="auth-switch">Already have account? <a href="#loginPanel">Sign in</a></p>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            var userAgent = navigator.userAgent || "";
+            var isAndroidWebView = /; wv\)/i.test(userAgent) || /\bwv\b/i.test(userAgent);
+            var isStandaloneApp = window.matchMedia && window.matchMedia("(display-mode: standalone)").matches;
+            var isInstalledIosApp = window.navigator.standalone === true;
+            var isApp = isAndroidWebView || isStandaloneApp || isInstalledIosApp;
+            function getDevicePlatform() {
+                var platform = navigator.platform || "";
+                var userAgentDataPlatform = navigator.userAgentData?.platform || "";
+                var platformText = (userAgentDataPlatform + " " + platform + " " + userAgent).toLowerCase();
+
+                if (/android/.test(platformText)) return "android";
+                if (/(iphone|ipad|ipod)/.test(platformText)) return "ios";
+                if (/windows/.test(platformText) || /win32|win64|wow64/.test(platformText)) return "windows";
+                if (/cros/.test(platformText)) return "chromeos";
+                if (/linux/.test(platformText)) return "linux";
+                if (/macintosh|mac os x|macintel|macppc|mac68k/.test(platformText)) return "macos";
+
+                return "pc";
+            }
+
+            var devicePlatform = getDevicePlatform();
+            var isIosDevice = devicePlatform === "ios";
+            var isAndroidDevice = devicePlatform === "android";
+            var isPcDevice = ["windows", "macos", "linux", "chromeos", "pc"].includes(devicePlatform);
+            var promptGroup = document.querySelector(".app-install-prompts");
+            var androidCard = document.querySelector(".android-install-card");
+            var iosCard = document.querySelector(".ios-install-card");
+            var pcCard = document.querySelector(".pc-install-card");
+            var desktopInstallKicker = document.getElementById("desktopInstallKicker");
+            var desktopInstallTitle = document.getElementById("desktopInstallTitle");
+            var desktopModalKicker = document.getElementById("desktopModalKicker");
+            var pcInstallTitle = document.getElementById("pcInstallTitle");
+            var androidModal = document.getElementById("androidInstallModal");
+            var iosModal = document.getElementById("iosInstallModal");
+            var pcModal = document.getElementById("pcInstallModal");
+            var androidClose = document.querySelector(".android-install-close");
+            var iosClose = document.querySelector(".ios-install-close");
+            var pcClose = document.querySelector(".pc-install-close");
+            var androidCancel = document.querySelector(".android-install-cancel");
+            var iosCancel = document.querySelector(".ios-install-cancel");
+            var pcCancel = document.querySelector(".pc-install-cancel");
+            var androidConfirm = document.querySelector(".android-install-confirm");
+            var pcConfirm = document.querySelector(".pc-install-confirm");
+            var androidSteps = document.querySelector(".android-install-steps");
+            var pcSteps = document.querySelector(".pc-install-steps");
+            var iosCopy = document.querySelector(".ios-copy-link");
+            var iosCopyStatus = document.querySelector(".ios-copy-status");
+            var deferredInstallPrompt = null;
+
+            function getDesktopLabel() {
+                if (devicePlatform === "windows") return "Windows";
+                if (devicePlatform === "linux") return "Linux";
+                if (devicePlatform === "macos") return "Mac";
+                if (devicePlatform === "chromeos") return "ChromeOS";
+                return "Desktop";
+            }
+
+            var desktopLabel = getDesktopLabel();
+            if (desktopInstallKicker) desktopInstallKicker.textContent = desktopLabel + " App";
+            if (desktopInstallTitle) desktopInstallTitle.textContent = "Install GYMRAT on " + desktopLabel;
+            if (desktopModalKicker) desktopModalKicker.textContent = desktopLabel + " Install";
+            if (pcInstallTitle) pcInstallTitle.textContent = "Attention, you are about to install GYMRAT on this " + desktopLabel;
+
+            window.addEventListener("beforeinstallprompt", function (event) {
+                event.preventDefault();
+                deferredInstallPrompt = event;
+            });
+
+            function openAndroidModal() {
+                if (!androidModal) return;
+                androidModal.hidden = false;
+            }
+
+            function closeAndroidModal() {
+                if (!androidModal) return;
+                androidModal.hidden = true;
+                if (androidSteps) {
+                    androidSteps.hidden = true;
+                }
+            }
+
+            function openIosModal() {
+                if (!iosModal) return;
+                iosModal.hidden = false;
+            }
+
+            function closeIosModal() {
+                if (!iosModal) return;
+                iosModal.hidden = true;
+                if (iosCopyStatus) {
+                    iosCopyStatus.textContent = "";
+                }
+            }
+
+            function openPcModal() {
+                if (!pcModal) return;
+                pcModal.hidden = false;
+            }
+
+            function closePcModal() {
+                if (!pcModal) return;
+                pcModal.hidden = true;
+                if (pcSteps) {
+                    pcSteps.hidden = true;
+                }
+            }
+
+            if (isApp || !promptGroup) {
+                return;
+            }
+
+            if (androidCard && isAndroidDevice) {
+                androidCard.hidden = false;
+                androidCard.addEventListener("click", openAndroidModal);
+            }
+
+            if (iosCard && isIosDevice) {
+                iosCard.hidden = false;
+                iosCard.addEventListener("click", openIosModal);
+            }
+
+            if (pcCard && isPcDevice) {
+                pcCard.hidden = false;
+                pcCard.addEventListener("click", openPcModal);
+            }
+
+            if (androidConfirm) {
+                androidConfirm.addEventListener("click", async function () {
+                    if (!deferredInstallPrompt) {
+                        if (androidSteps) {
+                            androidSteps.hidden = false;
+                        }
+                        return;
+                    }
+
+                    deferredInstallPrompt.prompt();
+                    await deferredInstallPrompt.userChoice.catch(function () {});
+                    deferredInstallPrompt = null;
+                    closeAndroidModal();
+                });
+            }
+
+            if (pcConfirm) {
+                pcConfirm.addEventListener("click", async function () {
+                    if (!deferredInstallPrompt) {
+                        if (pcSteps) {
+                            pcSteps.hidden = false;
+                        }
+                        return;
+                    }
+
+                    deferredInstallPrompt.prompt();
+                    await deferredInstallPrompt.userChoice.catch(function () {});
+                    deferredInstallPrompt = null;
+                    closePcModal();
+                });
+            }
+
+            promptGroup.hidden = false;
+
+            if (androidClose) {
+                androidClose.addEventListener("click", closeAndroidModal);
+            }
+
+            if (androidCancel) {
+                androidCancel.addEventListener("click", closeAndroidModal);
+            }
+
+            if (androidModal) {
+                androidModal.addEventListener("click", function (event) {
+                    if (event.target === androidModal) {
+                        closeAndroidModal();
+                    }
+                });
+            }
+
+            if (iosClose) {
+                iosClose.addEventListener("click", closeIosModal);
+            }
+
+            if (iosCancel) {
+                iosCancel.addEventListener("click", closeIosModal);
+            }
+
+            if (iosModal) {
+                iosModal.addEventListener("click", function (event) {
+                    if (event.target === iosModal) {
+                        closeIosModal();
+                    }
+                });
+            }
+
+            if (pcClose) {
+                pcClose.addEventListener("click", closePcModal);
+            }
+
+            if (pcCancel) {
+                pcCancel.addEventListener("click", closePcModal);
+            }
+
+            if (pcModal) {
+                pcModal.addEventListener("click", function (event) {
+                    if (event.target === pcModal) {
+                        closePcModal();
+                    }
+                });
+            }
+
+            if (iosCopy) {
+                iosCopy.addEventListener("click", async function () {
+                    var currentUrl = window.location.href;
+                    try {
+                        await navigator.clipboard.writeText(currentUrl);
+                        if (iosCopyStatus) {
+                            iosCopyStatus.textContent = typeof window.gymratTranslateText === "function" ? window.gymratTranslateText("Website link copied.") : "Website link copied.";
+                        }
+                    } catch (error) {
+                        if (iosCopyStatus) {
+                            iosCopyStatus.textContent = currentUrl;
+                        }
+                    }
+                });
+            }
+        }());
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="auth.js?v=230"></script>
+<script src="i18n.js?v=26"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="GYMRAT">
+    <link rel="apple-touch-icon" sizes="180x180" href="Pictures/Logos/apple-touch-icon.png">
+    <title>GYMRAT - Anatomy Back</title>
+    <link rel="icon" type="image/webp" href="Pictures/Logos/Icon.webp">
+    <link rel="stylesheet" href="Css.css?v=229">
+</head>
+<body class="page-anatomy-detail has-mobile-footer">
+    <button type="button" class="site-menu-button" data-site-menu-button="true" aria-label="Open menu" aria-expanded="false" title="Menu" onclick="openShalevMenu()">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="site-menu-modal" id="siteMenuModal" hidden>
+        <div class="site-menu-dialog" role="dialog" aria-modal="true">
+            <button type="button" class="site-menu-close" aria-label="Close menu" title="Close" onclick="closeShalevMenu()">&times;</button>
+            <div class="site-menu-section site-menu-user-section">
+                <h3 class="site-menu-section-title site-menu-user" data-site-menu-user="true" title="User">User</h3>
+                <a class="site-menu-link" href="MainPage.html">Home</a>
+                <button type="button" class="site-menu-action" onclick="openDietApp(event)">Diet</button>
+                <a class="site-menu-link" href="MyFoods.html">My foods</a>
+                <button type="button" class="site-menu-action" onclick="if (document.body.classList.contains('page-main-menu')) { if (typeof closeShalevMenu === 'function') { closeShalevMenu(); } if (typeof openAccountActionsDialog === 'function') { openAccountActionsDialog(); } } else { window.location.href = 'MainPage.html?settings=1'; }">Settings</button>
+            </div>
+            <div class="site-menu-section">
+                <h3 class="site-menu-section-title">Workouts</h3>
+                <a class="site-menu-link site-menu-indent" href="WeightsTrackingMenu.html">Progressive overload</a>
+                <a class="site-menu-link site-menu-indent" href="WorkoutPlanMainPage.html">Workout Plan</a>
+                <a class="site-menu-link site-menu-indent" href="GymWorkoutPlanner.html">Workout builder</a>
+                <a class="site-menu-link site-menu-indent" href="MyPlans.html">Saved plans</a>
+            </div>
+            <div class="site-menu-section">
+                <h3 class="site-menu-section-title">Information</h3>
+                <a class="site-menu-link site-menu-indent" href="Anatomy.html">Anatomy</a>
+                <a class="site-menu-link site-menu-indent" href="ExercisesGuide.html">Training guide</a>
+                <a class="site-menu-link site-menu-indent" href="Favorites.html">Saved workouts</a>
+                <a class="site-menu-link site-menu-indent" href="DietStats.html">Diet stats</a>
+                <button type="button" class="site-menu-action site-menu-indent" onclick="alert('Researches are still in process.');">Researches</button>
+            </div>
+        </div>
+    </div>
+    <aside class="main-sidebar" aria-label="Main navigation">
+        <div class="main-sidebar-top">
+            <p class="main-sidebar-user" data-site-sidebar-user="true" title="User">User</p>
+            <a class="main-sidebar-link" href="MainPage.html">Home</a>
+            <a class="main-sidebar-link main-sidebar-diet" href="#" onclick="openDietApp(event); return false;">Diet</a>
+            <a class="main-sidebar-link" href="MyFoods.html">My foods</a>
+            <a class="main-sidebar-link main-sidebar-settings" href="MainPage.html?settings=1">Settings</a>
+        </div>
+        <nav class="main-sidebar-nav">
+            <p class="main-sidebar-category" title="Workouts">Workouts</p>
+            <a class="main-sidebar-link" href="WeightsTrackingMenu.html">Progressive overload</a>
+            <a class="main-sidebar-link" href="WorkoutPlanMainPage.html">Workout Plan</a>
+            <a class="main-sidebar-link" href="GymWorkoutPlanner.html">Workout builder</a>
+            <a class="main-sidebar-link" href="MyPlans.html">Saved plans</a>
+            <p class="main-sidebar-category" title="Information">Information</p>
+            <a class="main-sidebar-link" href="Anatomy.html">Anatomy</a>
+            <a class="main-sidebar-link" href="ExercisesGuide.html">Training guide</a>
+            <a class="main-sidebar-link" href="Favorites.html">Saved workouts</a>
+            <a class="main-sidebar-link" href="DietStats.html">Diet stats</a>
+            <a class="main-sidebar-link" href="#" onclick="alert('Researches are still in process.'); return false;">Researches</a>
+        </nav>
+    </aside>    <main class="anatomy-detail-shell"><section class="anatomy-detail-hero"><div><p class="eyebrow">Back Anatomy</p><h1>Back</h1><p class="hero-subtitle">Select a muscle group, open a muscle card, and add your researched function notes later.</p></div><img src="Pictures/Animations/Animation_back.webp" alt="Back anatomy preview"></section><section class="anatomy-workspace"><aside class="anatomy-visual-panel"><img src="Pictures/Animations/Animation_back.webp" alt="Back muscle group"><div class="anatomy-visual-caption"><strong id="selectedGroupName"></strong><span id="selectedGroupText">Choose a section to view its muscles.</span></div></aside><section class="anatomy-info-panel"><div class="anatomy-tabs" id="anatomyTabs" role="tablist" aria-label="Back muscle groups"></div><div class="anatomy-muscle-grid" id="muscleGrid"></div></section></section></main>
+    <script src="auth.js?v=230"></script>
+<script src="i18n.js?v=26"></script>
+    <script>window.GYMRAT_ANATOMY_DETAIL={"image":"Pictures/Muscles/Back.webp","groups":[{"name":"Superficial Back","muscles":[{"name":"Trapezius","image":"Pictures/Muscles/Back.webp","color":"#ef4444","function":"Moves and holds the shoulder blade in place. The upper part shrugs the shoulders up, the middle part pulls the shoulder blades back, and the lower part helps pull the shoulder blades down and helps lift the arm above the head."},{"name":"Levator Scapulae","image":"Pictures/Muscles/Back.webp","color":"#a855f7","function":"Lifts the shoulder blade upward, like when shrugging one shoulder. It also helps turn the shoulder blade downward and can help bend or extend the neck."},{"name":"Rhomboid Minor","image":"Pictures/Muscles/Back.webp","color":"#facc15","function":"Pulls the shoulder blade back toward the spine. It also helps keep the shoulder blade flat against the ribs and supports posture during pulling movements."},{"name":"Rhomboid Major","image":"Pictures/Muscles/Back.webp","color":"#3b82f6","function":"Pulls the shoulder blade back and slightly downward. It helps keep the shoulder blade steady against the rib cage during rows, posture, and pulling exercises."},{"name":"Latissimus Dorsi","image":"Pictures/Muscles/Back.webp","color":"#22c55e","function":"Pulls the arm down and back toward the body. It is used in pull-ups, rows, climbing, swimming movements, and any motion where you pull with your arm."}]},{"name":"Posterior Shoulder And Rotator Cuff","muscles":[{"name":"Supraspinatus","image":"Pictures/Muscles/Back2.webp","color":"#a855f7","function":"Helps start lifting the arm out to the side. It also helps hold the upper arm bone securely in the shoulder joint."},{"name":"Posterior Deltoid","image":"Pictures/Muscles/Back2.webp","color":"#facc15","function":"Pulls the arm backward and helps move it out to the side behind you. It is used in rear-delt raises, rows, and pulling the arm back."},{"name":"Infraspinatus","image":"Pictures/Muscles/Back2.webp","color":"#3b82f6","function":"Turns the upper arm outward. It also helps keep the shoulder joint stable while the arm moves."},{"name":"Teres Minor","image":"Pictures/Muscles/Back2.webp","color":"#22c55e","function":"Turns the upper arm outward and helps keep the shoulder stable. It works with the other rotator cuff muscles."},{"name":"Teres Major","image":"Pictures/Muscles/Back2.webp","color":"#ef4444","function":"Pulls the arm down and back and turns it inward. It helps the lats during pulling movements."},{"name":"Subscapularis","image":"Pictures/Muscles/Back2.webp","color":"#06b6d4","function":"Turns the upper arm inward and helps keep the shoulder joint stable. It is one of the rotator cuff muscles."}]},{"name":"Spinal Erectors And Deep Stabilizers","muscles":[{"name":"Spinalis","image":"Pictures/Muscles/Back3.webp","color":"#3b82f6","function":"Helps straighten the spine close to the center of the back. It supports posture and controlled back extension."},{"name":"Longissimus","image":"Pictures/Muscles/Back3.webp","color":"#22c55e","function":"Helps straighten the spine and neck. It also helps bend the body sideways and keeps the back upright."},{"name":"Iliocostalis","image":"Pictures/Muscles/Back3.webp","color":"#ef4444","function":"Helps straighten the back and bend the body sideways. It also helps you stay upright with good posture."},{"name":"Multifidus","image":"Pictures/Muscles/Back3.webp","color":"#06b6d4","function":"Helps stabilize the small joints of the spine. It keeps the back steady and helps control small twisting and extending movements."},{"name":"Quadratus Lumborum","image":"Pictures/Muscles/Back3.webp","color":"#f97316","function":"Helps bend the body sideways, support the lower back, and lift one side of the pelvis. It also helps steady the lower ribs while breathing."}]}]};</script>
+    <script src="anatomy-detail.js?v=2"></script>
+        <footer class="main-mobile-footer" data-no-i18n aria-label="Mobile quick navigation">
+        <a class="main-mobile-footer-item is-active" href="MainPage.html" aria-label="Home" title="Home">
+            <svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-home" aria-hidden="true">
+                <path d="M4 11.5 12 5l8 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.5 10.8V19h11v-8.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 19v-5h4v5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <a class="main-mobile-footer-item" href="DietSetup.html" aria-label="Diet" title="Diet" onclick="if (typeof openDietApp === 'function') { openDietApp(event); }"><span class="main-mobile-footer-icon" aria-hidden="true">&#127831;</span></a>
+        <a class="main-mobile-footer-item" href="WorkoutPlanMainPage.html" aria-label="Workout plan" title="Workout plan">
+            <svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-table" aria-hidden="true">
+                <rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 10h16M4 15h16M9 5v14M15 5v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </a>
+        <a class="main-mobile-footer-item" href="WeightsTrackingMenu.html" aria-label="Progressive overload" title="Progressive overload">
+            <img src="Pictures/Logos/Img_no_star.webp" alt="" class="main-mobile-footer-gymrat" aria-hidden="true">
+        </a>
+        <a class="main-mobile-footer-item" href="Anatomy.html" aria-label="Anatomy" title="Anatomy">
+            <img src="Pictures/Animations/Animation_full_body.webp" alt="" class="main-mobile-footer-anatomy" aria-hidden="true">
+        </a>
+        <button type="button" class="main-mobile-footer-item" aria-label="Settings" title="Settings" onclick="if (document.body.classList.contains('page-main-menu')) { if (typeof closeShalevMenu === 'function') { closeShalevMenu(); } if (typeof openAccountActionsDialog === 'function') { openAccountActionsDialog(); } } else { window.location.href = 'MainPage.html?settings=1'; }">
+            <svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-gear" aria-hidden="true">
+                <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5A3.5 3.5 0 1 0 12 8.5Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M19 12a7 7 0 0 0-.08-1l2.02-1.57-2-3.46-2.42 1a7.8 7.8 0 0 0-1.73-1l-.37-2.58h-4l-.37 2.58a7.8 7.8 0 0 0-1.73 1l-2.42-1-2 3.46L5.08 11A7 7 0 0 0 5 12a7 7 0 0 0 .08 1l-2.02 1.57 2 3.46 2.42-1a7.8 7.8 0 0 0 1.73 1l.37 2.58h4l.37-2.58a7.8 7.8 0 0 0 1.73-1l2.42 1 2-3.46L18.92 13A7 7 0 0 0 19 12Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </footer>
+    <script src="SiteNav.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+﻿{
+    "source":  "USDA FoodData Central full CSV download",
+    "release":  "2026-04-30",
+    "includedDataTypes":  [
+                              "foundation_food",
+                              "sr_legacy_food",
+                              "survey_fndds_food"
+                          ],
+    "excludedDataTypes":  [
+                              "branded_food"
+                          ],
+    "generatedAt":  "2026-07-05T15:31:40.8356193Z",
+    "outputFile":  "data\\usda\\food-macros-per-100g.ndjson",
+    "recordCount":  13268,
+    "skippedExcludedOrMissingAnyMacro":  1818766,
+    "nutrientMapping":  [
+                            {
+                                "field":  "protein",
+                                "unitName":  "G",
+                                "nutrientId":  1003,
+                                "name":  "Protein"
+                            },
+                            {
+                                "field":  "fat",
+                                "unitName":  "G",
+                                "nutrientId":  1004,
+                                "name":  "Total lipid (fat)"
+                            },
+                            {
+                                "field":  "carbs",
+                                "unitName":  "G",
+                                "nutrientId":  1005,
+                                "name":  "Carbohydrate, by difference"
+                            },
+                            {
+                                "field":  "calories",
+                                "unitName":  "KCAL",
+                                "nutrientId":  1008,
+                                "name":  "Energy"
+                            }
+                        ],
+    "byDataType":  {
+                       "survey_fndds_food":  5365,
+                       "sr_legacy_food":  7793,
+                       "foundation_food":  110
+                   },
+    "deduplication":  {
+                          "method":  "exact same normalized name and exact same calories/protein/carbs/fat",
+                          "before":  13359,
+                          "after":  13268,
+                          "removed":  91,
+                          "generatedAt":  "2026-07-05T16:11:14.2319831Z"
+                      }
+}

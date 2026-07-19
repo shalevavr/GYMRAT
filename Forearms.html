@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="GYMRAT">
+    <link rel="apple-touch-icon" sizes="180x180" href="Pictures/Logos/apple-touch-icon.png">
+<title>GYMRAT - Forearms</title>
+<link rel="icon" type="image/webp" href="Pictures/Logos/Icon.webp">
+
+<style>
+
+/* =========================
+   BASE
+========================= */
+
+body {
+    margin: 0;
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+
+    /* רקע כחול יפה כמו שרצית */
+    background-color: #0b0f1a;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    background-size: 30px 30px, 100% 100%;
+    background-attachment: fixed;
+    color: white;
+}
+
+/* =========================
+   WRAPPER
+========================= */
+
+.wrapper {
+    width: 95%;
+    max-width: 1000px;
+    padding: 20px;
+    margin-top: clamp(90px, 12vh, 140px);
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+/* =========================
+   BOX (מותאם לרקע כחול)
+========================= */
+
+.box {
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+    position: relative;
+}
+
+/* =========================
+   CHECKBOX
+========================= */
+
+.selectBox {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input {
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: white;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* כפתורים יפים יותר */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* =========================
+   SET
+========================= */
+
+.set {
+    border-top: 1px solid #334155;
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+</style>
+<link rel="stylesheet" href="Css.css?v=229">
+</head>
+
+<body class="page-tracking-entry has-mobile-footer">
+    <button type="button" class="site-menu-button" data-site-menu-button="true" aria-label="Open menu" aria-expanded="false" title="Menu" onclick="openShalevMenu()">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="site-menu-modal" id="siteMenuModal" hidden>
+        <div class="site-menu-dialog" role="dialog" aria-modal="true">
+            <button type="button" class="site-menu-close" aria-label="Close menu" title="Close" onclick="closeShalevMenu()">&times;</button>
+            <div class="site-menu-section site-menu-user-section">
+                <h3 class="site-menu-section-title site-menu-user" data-site-menu-user="true" title="User">User</h3>
+                <a class="site-menu-link" href="MainPage.html">Home</a>
+                <button type="button" class="site-menu-action" onclick="openDietApp(event)">Diet</button>
+                <a class="site-menu-link" href="MyFoods.html">My foods</a>
+                <button type="button" class="site-menu-action" onclick="if (document.body.classList.contains('page-main-menu')) { if (typeof closeShalevMenu === 'function') { closeShalevMenu(); } if (typeof openAccountActionsDialog === 'function') { openAccountActionsDialog(); } } else { window.location.href = 'MainPage.html?settings=1'; }">Settings</button>
+            </div>
+            <div class="site-menu-section">
+                <h3 class="site-menu-section-title">Workouts</h3>
+                <a class="site-menu-link site-menu-indent" href="WeightsTrackingMenu.html">Progressive overload</a>
+                <a class="site-menu-link site-menu-indent" href="WorkoutPlanMainPage.html">Workout Plan</a>
+                <a class="site-menu-link site-menu-indent" href="GymWorkoutPlanner.html">Workout builder</a>
+                <a class="site-menu-link site-menu-indent" href="MyPlans.html">Saved plans</a>
+            </div>
+            <div class="site-menu-section">
+                <h3 class="site-menu-section-title">Information</h3>
+                <a class="site-menu-link site-menu-indent" href="Anatomy.html">Anatomy</a>
+                <a class="site-menu-link site-menu-indent" href="ExercisesGuide.html">Training guide</a>
+                <a class="site-menu-link site-menu-indent" href="Favorites.html">Saved workouts</a>
+                <a class="site-menu-link site-menu-indent" href="DietStats.html">Diet stats</a>
+                <button type="button" class="site-menu-action site-menu-indent" onclick="alert('Researches are still in process.');">Researches</button>
+            </div>
+        </div>
+    </div>    <aside class="main-sidebar" aria-label="Main navigation">
+        <div class="main-sidebar-top">
+            <p class="main-sidebar-user" data-site-sidebar-user="true" title="User">User</p>
+            <a class="main-sidebar-link" href="MainPage.html">Home</a>
+            <a class="main-sidebar-link main-sidebar-diet" href="#" onclick="openDietApp(event); return false;">Diet</a>
+            <a class="main-sidebar-link" href="MyFoods.html">My foods</a>
+            <a class="main-sidebar-link main-sidebar-settings" href="MainPage.html?settings=1">Settings</a>
+        </div>
+        <nav class="main-sidebar-nav">
+            <p class="main-sidebar-category" title="Workouts">Workouts</p>
+            <a class="main-sidebar-link" href="WeightsTrackingMenu.html">Progressive overload</a>
+            <a class="main-sidebar-link" href="WorkoutPlanMainPage.html">Workout Plan</a>
+            <a class="main-sidebar-link" href="GymWorkoutPlanner.html">Workout builder</a>
+            <a class="main-sidebar-link" href="MyPlans.html">Saved plans</a>
+            <p class="main-sidebar-category" title="Information">Information</p>
+            <a class="main-sidebar-link" href="Anatomy.html">Anatomy</a>
+            <a class="main-sidebar-link" href="ExercisesGuide.html">Training guide</a>
+            <a class="main-sidebar-link" href="Favorites.html">Saved workouts</a>
+            <a class="main-sidebar-link" href="DietStats.html">Diet stats</a>
+            <a class="main-sidebar-link" href="#" onclick="alert('Researches are still in process.'); return false;">Researches</a>
+        </nav>
+    </aside>    
+                        
+<div class="wrapper">
+
+    <div class="container" id="container"></div>
+
+    <div class="buttons">
+        <button onclick="addBox()">➕ Add</button>
+        <button onclick="deleteSelected()">🗑 Delete</button>
+    </div>
+
+</div>
+
+
+<script src="auth.js?v=230"></script>
+<script src="i18n.js?v=26"></script>
+<script src="Js.js?v=2"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    // הבדיקה אם המשתמש מחובר תתבצע כעת דרך auth.js בצורה חכמה יותר בעתיד
+    const user = localStorage.getItem("currentUser");
+
+    if (!user) {
+        await window.gymratAlert("You are not logged in");
+        window.location.href = "login.html";
+        return;
+    }
+
+    // הפונקציה loadAll תמשוך מידע מה-LocalStorage ומהענן במקביל
+    if (typeof loadAll === "function") {
+        loadAll();
+    }
+});
+</script>
+
+<script>
+    document.body.classList.toggle("theme-dark-background", localStorage.getItem("gymrat:theme") === "dark");
+</script>        <footer class="main-mobile-footer" data-no-i18n aria-label="Mobile quick navigation">
+        <a class="main-mobile-footer-item is-active" href="MainPage.html" aria-label="Home" title="Home">
+            <svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-home" aria-hidden="true">
+                <path d="M4 11.5 12 5l8 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.5 10.8V19h11v-8.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 19v-5h4v5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <a class="main-mobile-footer-item" href="DietSetup.html" aria-label="Diet" title="Diet" onclick="if (typeof openDietApp === 'function') { openDietApp(event); }"><span class="main-mobile-footer-icon" aria-hidden="true">&#127831;</span></a>
+        <a class="main-mobile-footer-item" href="WorkoutPlanMainPage.html" aria-label="Workout plan" title="Workout plan">
+            <svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-table" aria-hidden="true">
+                <rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 10h16M4 15h16M9 5v14M15 5v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </a>
+        <a class="main-mobile-footer-item" href="WeightsTrackingMenu.html" aria-label="Progressive overload" title="Progressive overload">
+            <img src="Pictures/Logos/Img_no_star.webp" alt="" class="main-mobile-footer-gymrat" aria-hidden="true">
+        </a>
+        <a class="main-mobile-footer-item" href="Anatomy.html" aria-label="Anatomy" title="Anatomy">
+            <img src="Pictures/Animations/Animation_full_body.webp" alt="" class="main-mobile-footer-anatomy" aria-hidden="true">
+        </a>
+        <button type="button" class="main-mobile-footer-item" aria-label="Settings" title="Settings" onclick="if (document.body.classList.contains('page-main-menu')) { if (typeof closeShalevMenu === 'function') { closeShalevMenu(); } if (typeof openAccountActionsDialog === 'function') { openAccountActionsDialog(); } } else { window.location.href = 'MainPage.html?settings=1'; }">
+            <svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-gear" aria-hidden="true">
+                <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5A3.5 3.5 0 1 0 12 8.5Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M19 12a7 7 0 0 0-.08-1l2.02-1.57-2-3.46-2.42 1a7.8 7.8 0 0 0-1.73-1l-.37-2.58h-4l-.37 2.58a7.8 7.8 0 0 0-1.73 1l-2.42-1-2 3.46L5.08 11A7 7 0 0 0 5 12a7 7 0 0 0 .08 1l-2.02 1.57 2 3.46 2.42-1a7.8 7.8 0 0 0 1.73 1l.37 2.58h4l.37-2.58a7.8 7.8 0 0 0 1.73-1l2.42 1 2-3.46L18.92 13A7 7 0 0 0 19 12Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </footer>
+    <script src="SiteNav.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

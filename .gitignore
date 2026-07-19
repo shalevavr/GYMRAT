@@ -1,0 +1,17 @@
+﻿.env
+.env.*
+!.env.example
+node_modules/
+.vercel/
+data/usda/*.zip
+data/usda/*.ndjson
+data/usda/*/
+
+# Local secrets and deployment state
+# Private/local user data
+user_data.rec
+Calorie counter application/api_config.json
+Calorie counter application/dist_qt/api_config.json
+Calorie counter application/calorie_storage*.json
+Calorie counter application/dist_qt/calorie_storage*.json
+Calorie counter application/dist_qt/calorie_storage*.bak

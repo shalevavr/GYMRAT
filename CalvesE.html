@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="GYMRAT">
+    <link rel="apple-touch-icon" sizes="180x180" href="Pictures/Logos/apple-touch-icon.png">
+<title>GYMRAT - Calves</title>
+<link rel="icon" type="image/webp" href="Pictures/Logos/Icon.webp">
+<link rel="stylesheet" href="Css.css?v=229">
+
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #0b0f1a;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  background-size: 30px 30px, 100% 100%;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 20px;
+  color: white;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.exercise-card {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.exercise-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.card-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+/* אייקון */
+.check-icon {
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+
+  background: white;       
+  border: 2px solid black; 
+  border-radius: 6px;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.check-icon.checked {
+  background: yellow;
+}
+
+.check-icon:hover {
+  transform: scale(1.15);
+}
+
+/* תמונות רגילות */
+.IMG {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 12px;
+  animation: float 3s infinite ease-in-out;
+  background: #334155;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.exercise-title {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ⭐ FAVORITES CARD */
+.favorites-card {
+  background: #facc15;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.favorites-card:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+/* 🔥 תמונה של Favorites (עגולה כמו השאר) */
+.favorites-card .fav-img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .IMG {
+    height: 120px;
+  }
+
+  .exercise-title {
+    font-size: 14px;
+  }
+
+  .check-icon {
+    width: 22px;
+    height: 22px;
+    padding: 3px;
+  }
+}
+</style>
+</head>
+
+<body class="page-exercise-list has-mobile-footer">
+    <button type="button" class="site-menu-button" data-site-menu-button="true" aria-label="Open menu" aria-expanded="false" title="Menu" onclick="openShalevMenu()">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="site-menu-modal" id="siteMenuModal" hidden>
+        <div class="site-menu-dialog" role="dialog" aria-modal="true">
+            <button type="button" class="site-menu-close" aria-label="Close menu" title="Close" onclick="closeShalevMenu()">&times;</button>
+            <div class="site-menu-section site-menu-user-section">
+                <h3 class="site-menu-section-title site-menu-user" data-site-menu-user="true" title="User">User</h3>
+                <a class="site-menu-link" href="MainPage.html">Home</a>
+                <button type="button" class="site-menu-action" onclick="openDietApp(event)">Diet</button>
+                <a class="site-menu-link" href="MyFoods.html">My foods</a>
+                <button type="button" class="site-menu-action" onclick="if (document.body.classList.contains('page-main-menu')) { if (typeof closeShalevMenu === 'function') { closeShalevMenu(); } if (typeof openAccountActionsDialog === 'function') { openAccountActionsDialog(); } } else { window.location.href = 'MainPage.html?settings=1'; }">Settings</button>
+            </div>
+            <div class="site-menu-section">
+                <h3 class="site-menu-section-title">Workouts</h3>
+                <a class="site-menu-link site-menu-indent" href="WeightsTrackingMenu.html">Progressive overload</a>
+                <a class="site-menu-link site-menu-indent" href="WorkoutPlanMainPage.html">Workout Plan</a>
+                <a class="site-menu-link site-menu-indent" href="GymWorkoutPlanner.html">Workout builder</a>
+                <a class="site-menu-link site-menu-indent" href="MyPlans.html">Saved plans</a>
+            </div>
+            <div class="site-menu-section">
+                <h3 class="site-menu-section-title">Information</h3>
+                <a class="site-menu-link site-menu-indent" href="Anatomy.html">Anatomy</a>
+                <a class="site-menu-link site-menu-indent" href="ExercisesGuide.html">Training guide</a>
+                <a class="site-menu-link site-menu-indent" href="Favorites.html">Saved workouts</a>
+                <a class="site-menu-link site-menu-indent" href="DietStats.html">Diet stats</a>
+                <button type="button" class="site-menu-action site-menu-indent" onclick="alert('Researches are still in process.');">Researches</button>
+            </div>
+        </div>
+    </div>
+
+    <aside class="main-sidebar" aria-label="Main navigation">
+        <div class="main-sidebar-top">
+            <p class="main-sidebar-user" data-site-sidebar-user="true" title="User">User</p>
+            <a class="main-sidebar-link" href="MainPage.html">Home</a>
+            <a class="main-sidebar-link main-sidebar-diet" href="#" onclick="openDietApp(event); return false;">Diet</a>
+            <a class="main-sidebar-link" href="MyFoods.html">My foods</a>
+            <a class="main-sidebar-link main-sidebar-settings" href="MainPage.html?settings=1">Settings</a>
+        </div>
+        <nav class="main-sidebar-nav">
+            <p class="main-sidebar-category" title="Workouts">Workouts</p>
+            <a class="main-sidebar-link" href="WeightsTrackingMenu.html">Progressive overload</a>
+            <a class="main-sidebar-link" href="WorkoutPlanMainPage.html">Workout Plan</a>
+            <a class="main-sidebar-link" href="GymWorkoutPlanner.html">Workout builder</a>
+            <a class="main-sidebar-link" href="MyPlans.html">Saved plans</a>
+            <p class="main-sidebar-category" title="Information">Information</p>
+            <a class="main-sidebar-link" href="Anatomy.html">Anatomy</a>
+            <a class="main-sidebar-link" href="ExercisesGuide.html">Training guide</a>
+            <a class="main-sidebar-link" href="Favorites.html">Saved workouts</a>
+            <a class="main-sidebar-link" href="DietStats.html">Diet stats</a>
+            <a class="main-sidebar-link" href="#" onclick="alert('Researches are still in process.'); return false;">Researches</a>
+        </nav>
+    </aside>
+<nav class="training-guide-mini-nav" aria-label="Training guide muscles">
+    <div class="training-guide-mini-track">
+        <a class="training-guide-mini-item training-guide-mini-favorites" href="Favorites.html"><img src="Pictures/Animations/Animation_full_body.webp" alt="Favorites"><span>Favorites</span></a>
+        <a class="training-guide-mini-item" href="BackE.html"><img src="Pictures/Animations/Animation_back.webp" alt="Back"><span>Back</span></a>
+        <a class="training-guide-mini-item" href="ShouldersE.html"><img src="Pictures/Animations/Animation_shoulders.webp" alt="Shoulders"><span>Shoulders</span></a>
+        <a class="training-guide-mini-item" href="BicepsE.html"><img src="Pictures/Animations/Animation_biceps.webp" alt="Biceps"><span>Biceps</span></a>
+        <a class="training-guide-mini-item" href="ForearmsE.html"><img src="Pictures/Animations/Animation_forearms.webp" alt="Forearms"><span>Forearms</span></a>
+        <a class="training-guide-mini-item" href="AbsE.html"><img src="Pictures/Animations/Animation_abs.webp" alt="Abs"><span>Abs</span></a>
+        <a class="training-guide-mini-item" href="ChestE.html"><img src="Pictures/Animations/Animation_chest.webp" alt="Chest"><span>Chest</span></a>
+        <a class="training-guide-mini-item" href="TricepsE.html"><img src="Pictures/Animations/Animation_triceps.webp" alt="Triceps"><span>Triceps</span></a>
+        <a class="training-guide-mini-item" href="QuadricepsE.html"><img src="Pictures/Animations/Animation_quadriceps.webp" alt="Quadriceps"><span>Quadriceps</span></a>
+        <a class="training-guide-mini-item" href="GlutesE.html"><img src="Pictures/Animations/Animation_glutes.webp" alt="Glutes"><span>Glutes</span></a>
+        <a class="training-guide-mini-item" href="HamstringsE.html"><img src="Pictures/Animations/Animation_hamstrings.webp" alt="Hamstrings"><span>Hamstrings</span></a>
+        <a class="training-guide-mini-item is-active" aria-current="page" href="CalvesE.html"><img src="Pictures/Animations/Animation_calves.webp" alt="Calves"><span>Calves</span></a>
+    </div>
+</nav><div class="container">
+<div class="exercise-card">
+    <div class="card-top">
+      <img class="check-icon" src="Pictures/Logos/Bookmark.webp">
+    </div>
+    <img class="IMG" src="Pictures/Exercises/Standing_calf_raises.webp">
+    <div class="exercise-title">Standing calf raises</div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="card-top">
+      <img class="check-icon" src="Pictures/Logos/Bookmark.webp">
+    </div>
+    <img class="IMG" src="Pictures/Exercises/Standing_calf_raises.webp">
+    <div class="exercise-title">Standing calf raises (Toes in)</div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="card-top">
+      <img class="check-icon" src="Pictures/Logos/Bookmark.webp">
+    </div>
+    <img class="IMG" src="Pictures/Exercises/Standing_calf_raises.webp">
+    <div class="exercise-title">Standing calf raises (Toes out)</div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="card-top">
+      <img class="check-icon" src="Pictures/Logos/Bookmark.webp">
+    </div>
+    <img class="IMG" src="Pictures/Exercises/45_Degree_calf_raises.webp">
+    <div class="exercise-title">45 Degree calf raises</div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="card-top">
+      <img class="check-icon" src="Pictures/Logos/Bookmark.webp">
+    </div>
+    <img class="IMG" src="Pictures/Exercises/45_Degree_calf_raises.webp">
+    <div class="exercise-title">45 Degree calf raises (Toes in)</div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="card-top">
+      <img class="check-icon" src="Pictures/Logos/Bookmark.webp">
+    </div>
+    <img class="IMG" src="Pictures/Exercises/45_Degree_calf_raises.webp">
+    <div class="exercise-title">45 Degree calf raises (Toes out)</div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="card-top">
+      <img class="check-icon" src="Pictures/Logos/Bookmark.webp">
+    </div>
+    <img class="IMG" src="Pictures/Exercises/Seated_calf_raises.webp">
+    <div class="exercise-title">Seated calf raises</div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="card-top">
+      <img class="check-icon" src="Pictures/Logos/Bookmark.webp">
+    </div>
+    <img class="IMG" src="Pictures/Exercises/Single_leg_calf_raises.webp">
+    <div class="exercise-title">Single leg calf raises</div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="card-top">
+      <img class="check-icon" src="Pictures/Logos/Bookmark.webp">
+    </div>
+    <img class="IMG" src="Pictures/Exercises/Smith_machine_calf_raises.webp">
+    <div class="exercise-title">Smith machine calf raises</div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="card-top">
+      <img class="check-icon" src="Pictures/Logos/Bookmark.webp">
+    </div>
+    <img class="IMG" src="Pictures/Exercises/Donkey_calf_raises.webp">
+    <div class="exercise-title">Donkey calf raises</div>
+  </div>
+
+</div>
+
+
+<script src="auth.js?v=230"></script>
+<script src="i18n.js?v=26"></script>
+
+<script src="Js.js?v=2"></script>
+
+<script>
+function goToFavorites() {
+  window.location.href = "Favorites.html";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const user = localStorage.getItem("currentUser");
+    if (!user) {
+        window.location.href = "index.html";
+    }
+});
+</script>
+
+<script>
+    document.body.classList.toggle("theme-dark-background", localStorage.getItem("gymrat:theme") === "dark");
+</script>        <footer class="main-mobile-footer" data-no-i18n aria-label="Mobile quick navigation">
+        <a class="main-mobile-footer-item is-active" href="MainPage.html" aria-label="Home" title="Home">
+            <svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-home" aria-hidden="true">
+                <path d="M4 11.5 12 5l8 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.5 10.8V19h11v-8.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 19v-5h4v5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <a class="main-mobile-footer-item" href="DietSetup.html" aria-label="Diet" title="Diet" onclick="if (typeof openDietApp === 'function') { openDietApp(event); }"><span class="main-mobile-footer-icon" aria-hidden="true">&#127831;</span></a>
+        <a class="main-mobile-footer-item" href="WorkoutPlanMainPage.html" aria-label="Workout plan" title="Workout plan">
+            <svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-table" aria-hidden="true">
+                <rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 10h16M4 15h16M9 5v14M15 5v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </a>
+        <a class="main-mobile-footer-item" href="WeightsTrackingMenu.html" aria-label="Progressive overload" title="Progressive overload">
+            <img src="Pictures/Logos/Img_no_star.webp" alt="" class="main-mobile-footer-gymrat" aria-hidden="true">
+        </a>
+        <a class="main-mobile-footer-item" href="Anatomy.html" aria-label="Anatomy" title="Anatomy">
+            <img src="Pictures/Animations/Animation_full_body.webp" alt="" class="main-mobile-footer-anatomy" aria-hidden="true">
+        </a>
+        <button type="button" class="main-mobile-footer-item" aria-label="Settings" title="Settings" onclick="if (document.body.classList.contains('page-main-menu')) { if (typeof closeShalevMenu === 'function') { closeShalevMenu(); } if (typeof openAccountActionsDialog === 'function') { openAccountActionsDialog(); } } else { window.location.href = 'MainPage.html?settings=1'; }">
+            <svg viewBox="0 0 24 24" class="main-mobile-footer-icon main-mobile-footer-icon-gear" aria-hidden="true">
+                <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5A3.5 3.5 0 1 0 12 8.5Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M19 12a7 7 0 0 0-.08-1l2.02-1.57-2-3.46-2.42 1a7.8 7.8 0 0 0-1.73-1l-.37-2.58h-4l-.37 2.58a7.8 7.8 0 0 0-1.73 1l-2.42-1-2 3.46L5.08 11A7 7 0 0 0 5 12a7 7 0 0 0 .08 1l-2.02 1.57 2 3.46 2.42-1a7.8 7.8 0 0 0 1.73 1l.37 2.58h4l.37-2.58a7.8 7.8 0 0 0 1.73-1l2.42 1 2-3.46L18.92 13A7 7 0 0 0 19 12Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </footer>
+    <script src="SiteNav.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
